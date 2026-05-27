@@ -1,6 +1,6 @@
 ﻿namespace Temple7k_iShopping
 {
-    partial class Form1
+    partial class FormLogin
     {
         /// <summary>
         /// Required designer variable.
