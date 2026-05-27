@@ -58,7 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Class2.cs" />
+    <Compile Include="Controller\FormLoginController.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +115,7 @@
     <Compile Include="Model\ItemNaoPrevisto.cs" />
     <Compile Include="Model\ItemPrevisto.cs" />
     <Compile Include="Model\Orcamento.cs" />
+    <Compile Include="Model\Sessao.cs" />
     <Compile Include="Model\TipoArtigo.cs" />
     <Compile Include="Model\Utilizador.cs" />
     <Compile Include="Program.cs" />
