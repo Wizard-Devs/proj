@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Data.Entity;
 using System.Windows.Forms;
+using Temple7k_iShopping.Model;
 
 namespace Temple7k_iShopping
 {
@@ -14,9 +13,21 @@ namespace Temple7k_iShopping
         [STAThread]
         static void Main()
         {
+            Database.SetInitializer(new AppInitializer());
+            using (iShoppingContext context = new iShoppingContext())
+            {
+                context.Database.Initialize(false);
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
+
+            using (FormLogin login = new FormLogin())
+            {
+                if (login.ShowDialog() == DialogResult.OK)
+                {
+                    Application.Run(new FormPrincipal());
+                }
+            }
         }
     }
 }
