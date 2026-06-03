@@ -59,52 +59,46 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\FormLoginController.cs" />
-    <Compile Include="FormCompra.cs">
+    <Compile Include="View\FormCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCompra.Designer.cs">
+    <Compile Include="View\FormCompra.Designer.cs">
       <DependentUpon>FormCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCriacaoAlteracao.cs">
+    <Compile Include="View\FormCriacaoAlteracao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCriacaoAlteracao.Designer.cs">
+    <Compile Include="View\FormCriacaoAlteracao.Designer.cs">
       <DependentUpon>FormCriacaoAlteracao.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEstatisticasListagens.cs">
+    <Compile Include="View\FormGestaoArtigos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEstatisticasListagens.Designer.cs">
-      <DependentUpon>FormEstatisticasListagens.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormGestaoArtigos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormGestaoArtigos.Designer.cs">
+    <Compile Include="View\FormGestaoArtigos.Designer.cs">
       <DependentUpon>FormGestaoArtigos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGestaoTiposDeArtigo.cs">
+    <Compile Include="View\FormGestaoTiposDeArtigo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGestaoTiposDeArtigo.Designer.cs">
+    <Compile Include="View\FormGestaoTiposDeArtigo.Designer.cs">
       <DependentUpon>FormGestaoTiposDeArtigo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="View\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="View\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPlaneamentoCompras.cs">
+    <Compile Include="View\FormPlaneamentoCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPlaneamentoCompras.Designer.cs">
+    <Compile Include="View\FormPlaneamentoCompras.Designer.cs">
       <DependentUpon>FormPlaneamentoCompras.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPrincipal.cs">
+    <Compile Include="View\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.Designer.cs">
+    <Compile Include="View\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\AppInitializer.cs" />
@@ -120,29 +114,31 @@
     <Compile Include="Model\Utilizador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Class1.cs" />
-    <EmbeddedResource Include="FormCompra.resx">
+    <Compile Include="View\FormEstatisticas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormEstatisticas.Designer.cs">
+      <DependentUpon>FormEstatisticas.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\FormCompra.resx">
       <DependentUpon>FormCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCriacaoAlteracao.resx">
+    <EmbeddedResource Include="View\FormCriacaoAlteracao.resx">
       <DependentUpon>FormCriacaoAlteracao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEstatisticasListagens.resx">
-      <DependentUpon>FormEstatisticasListagens.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormGestaoArtigos.resx">
+    <EmbeddedResource Include="View\FormGestaoArtigos.resx">
       <DependentUpon>FormGestaoArtigos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGestaoTiposDeArtigo.resx">
+    <EmbeddedResource Include="View\FormGestaoTiposDeArtigo.resx">
       <DependentUpon>FormGestaoTiposDeArtigo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="View\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPlaneamentoCompras.resx">
+    <EmbeddedResource Include="View\FormPlaneamentoCompras.resx">
       <DependentUpon>FormPlaneamentoCompras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPrincipal.resx">
+    <EmbeddedResource Include="View\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -154,6 +150,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\FormEstatisticas.resx">
+      <DependentUpon>FormEstatisticas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
