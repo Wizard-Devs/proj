@@ -71,42 +71,6 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCompra.Designer.cs">
-      <DependentUpon>FormCompra.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormCriacaoAlteracao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCriacaoAlteracao.Designer.cs">
-      <DependentUpon>FormCriacaoAlteracao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormEstatisticasListagens.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEstatisticasListagens.Designer.cs">
-      <DependentUpon>FormEstatisticasListagens.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormGestaoArtigos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormGestaoArtigos.Designer.cs">
-      <DependentUpon>FormGestaoArtigos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPlaneamentoCompras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPlaneamentoCompras.Designer.cs">
-      <DependentUpon>FormPlaneamentoCompras.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormGestaoTiposDeArtigo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormGestaoTiposDeArtigo.Designer.cs">
-      <DependentUpon>FormGestaoTiposDeArtigo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\AppInitializer.cs" />
     <Compile Include="Model\Artigo.cs" />
     <Compile Include="Model\Compra.cs" />
@@ -126,24 +90,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormCompra.resx">
-      <DependentUpon>FormCompra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormCriacaoAlteracao.resx">
-      <DependentUpon>FormCriacaoAlteracao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEstatisticasListagens.resx">
-      <DependentUpon>FormEstatisticasListagens.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormGestaoArtigos.resx">
-      <DependentUpon>FormGestaoArtigos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPlaneamentoCompras.resx">
-      <DependentUpon>FormPlaneamentoCompras.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormGestaoTiposDeArtigo.resx">
-      <DependentUpon>FormGestaoTiposDeArtigo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
