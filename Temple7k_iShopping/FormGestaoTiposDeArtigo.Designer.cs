@@ -54,7 +54,6 @@
             this.button1Adicionar.TabIndex = 1;
             this.button1Adicionar.Text = "Adicionar";
             this.button1Adicionar.UseVisualStyleBackColor = true;
-            this.button1Adicionar.Click += new System.EventHandler(this.button1Adicionar_Click);
             // 
             // button2Alterar
             // 

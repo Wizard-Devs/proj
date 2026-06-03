@@ -59,19 +59,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\FormLoginController.cs" />
-    <Compile Include="FormCompra.cs" />
+    <Compile Include="FormCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormCompra.Designer.cs">
       <DependentUpon>FormCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCriacaoAlteracao.cs" />
+    <Compile Include="FormCriacaoAlteracao.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormCriacaoAlteracao.Designer.cs">
       <DependentUpon>FormCriacaoAlteracao.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEstatisticasListagens.cs" />
+    <Compile Include="FormEstatisticasListagens.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormEstatisticasListagens.Designer.cs">
       <DependentUpon>FormEstatisticasListagens.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGestaoArtigos.cs" />
+    <Compile Include="FormGestaoArtigos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormGestaoArtigos.Designer.cs">
       <DependentUpon>FormGestaoArtigos.cs</DependentUpon>
     </Compile>
@@ -87,7 +95,9 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPlaneamentoCompras.cs" />
+    <Compile Include="FormPlaneamentoCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormPlaneamentoCompras.Designer.cs">
       <DependentUpon>FormPlaneamentoCompras.cs</DependentUpon>
     </Compile>
