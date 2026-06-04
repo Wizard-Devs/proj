@@ -55,13 +55,35 @@ namespace Temple7k_iShopping.Controller
             }
         }
 
-        public static bool AtualizarTipo(int id, string tipo, out string mensagem)
+        public static bool RemoverTipoArtigo(int id, out string message)
         {
-            mensagem = "";
+            message = "";
+
+            using (iShoppingContext db = new iShoppingContext())
+            {
+                TipoArtigo tipoArt = db.TipoArtigo.Find(id);
+
+                if(tipoArt == null)
+                {
+                    message = "Não existe nenhum tipo de artigo com esse ID";
+                    return false;
+                }
+
+                db.TipoArtigo.Remove(tipoArt);
+                db.SaveChanges();
+
+                message = "Tipo de artigo eliminado com sucesso";
+                return true;
+            }
+        }
+
+        public static bool AtualizarTipo(int id, string tipo, out string message)
+        {
+            message = "";
 
             if (tipo.Trim() == "")
             {
-                mensagem = "Preencha todos os campos";
+                message = "Preencha todos os campos";
                 return false;
             }
 
@@ -71,7 +93,7 @@ namespace Temple7k_iShopping.Controller
 
                 if (tipoArt == null)
                 {
-                    mensagem = "Não existe nenhum artigo com este ID";
+                    message = "Não existe nenhum artigo com este ID";
                     return false;
                 }
 
@@ -82,7 +104,7 @@ namespace Temple7k_iShopping.Controller
 
                 if (repetido)
                 {
-                    mensagem = "Já existe outro artigo com os mesmos dados";
+                    message = "Já existe outro artigo com os mesmos dados";
                     return false;
                 }
 
@@ -90,7 +112,7 @@ namespace Temple7k_iShopping.Controller
 
                 db.SaveChanges();
 
-                mensagem = "Tipo de artigo atualizado com sucesso";
+                message = "Tipo de artigo atualizado com sucesso";
                 return true;
             }
         }

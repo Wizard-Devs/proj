@@ -97,5 +97,27 @@ namespace Temple7k_iShopping
         {
 
         }
+
+        private void button3Remover_Click(object sender, EventArgs e)
+        {
+            int id;
+
+            if (!int.TryParse(textBox1Id.Text, out id))
+            {
+                MessageBox.Show("O ID tem de ser numérico");
+                return;
+            }
+
+            string mensagem;
+            bool ok = FormGestaoTipoArtigosController.RemoverTipoArtigo(id, out mensagem);
+
+            MessageBox.Show(mensagem);
+
+            if (ok)
+            {
+                LimparCampos();
+                CarregarDados();
+            }
+        }
     }
 }

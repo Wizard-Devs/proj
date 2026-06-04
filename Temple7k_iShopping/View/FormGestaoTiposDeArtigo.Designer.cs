@@ -87,6 +87,7 @@
             this.button3Remover.TabIndex = 3;
             this.button3Remover.Text = "Remover";
             this.button3Remover.UseVisualStyleBackColor = false;
+            this.button3Remover.Click += new System.EventHandler(this.button3Remover_Click);
             // 
             // textBox1TipoArtigo
             // 
