@@ -42,19 +42,19 @@
             // 
             // textBox1Username
             // 
-            this.textBox1Username.Location = new System.Drawing.Point(86, 14);
-            this.textBox1Username.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1Username.Location = new System.Drawing.Point(64, 11);
             this.textBox1Username.Name = "textBox1Username";
-            this.textBox1Username.Size = new System.Drawing.Size(232, 22);
+            this.textBox1Username.Size = new System.Drawing.Size(175, 20);
             this.textBox1Username.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(12, 14);
+            this.label1.Location = new System.Drawing.Point(9, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 22);
+            this.label1.Size = new System.Drawing.Size(56, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "Artigo:";
             // 
@@ -62,9 +62,10 @@
             // 
             this.button1Filtrar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1Filtrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.button1Filtrar.Location = new System.Drawing.Point(691, 12);
+            this.button1Filtrar.Location = new System.Drawing.Point(518, 3);
+            this.button1Filtrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1Filtrar.Name = "button1Filtrar";
-            this.button1Filtrar.Size = new System.Drawing.Size(92, 40);
+            this.button1Filtrar.Size = new System.Drawing.Size(69, 32);
             this.button1Filtrar.TabIndex = 7;
             this.button1Filtrar.Text = "Filtrar";
             this.button1Filtrar.UseVisualStyleBackColor = false;
@@ -73,9 +74,10 @@
             // 
             this.button3Remover.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.button3Remover.Location = new System.Drawing.Point(461, 57);
+            this.button3Remover.Location = new System.Drawing.Point(346, 46);
+            this.button3Remover.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3Remover.Name = "button3Remover";
-            this.button3Remover.Size = new System.Drawing.Size(92, 40);
+            this.button3Remover.Size = new System.Drawing.Size(74, 32);
             this.button3Remover.TabIndex = 10;
             this.button3Remover.Text = "Remover";
             this.button3Remover.UseVisualStyleBackColor = false;
@@ -84,9 +86,10 @@
             // 
             this.button2Alterar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2Alterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.button2Alterar.Location = new System.Drawing.Point(342, 57);
+            this.button2Alterar.Location = new System.Drawing.Point(256, 46);
+            this.button2Alterar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2Alterar.Name = "button2Alterar";
-            this.button2Alterar.Size = new System.Drawing.Size(94, 40);
+            this.button2Alterar.Size = new System.Drawing.Size(74, 32);
             this.button2Alterar.TabIndex = 9;
             this.button2Alterar.Text = "Alterar";
             this.button2Alterar.UseVisualStyleBackColor = false;
@@ -95,9 +98,10 @@
             // 
             this.button1Adicionar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1Adicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.button1Adicionar.Location = new System.Drawing.Point(224, 57);
+            this.button1Adicionar.Location = new System.Drawing.Point(155, 46);
+            this.button1Adicionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1Adicionar.Name = "button1Adicionar";
-            this.button1Adicionar.Size = new System.Drawing.Size(94, 40);
+            this.button1Adicionar.Size = new System.Drawing.Size(84, 32);
             this.button1Adicionar.TabIndex = 8;
             this.button1Adicionar.Text = "Adicionar";
             this.button1Adicionar.UseVisualStyleBackColor = false;
@@ -105,36 +109,39 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(453, 12);
+            this.comboBox1.Location = new System.Drawing.Point(340, 10);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(232, 24);
+            this.comboBox1.Size = new System.Drawing.Size(175, 21);
             this.comboBox1.TabIndex = 11;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 103);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 84);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(767, 217);
+            this.dataGridView1.Size = new System.Drawing.Size(575, 176);
             this.dataGridView1.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(343, 14);
+            this.label2.Location = new System.Drawing.Point(257, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 22);
+            this.label2.Size = new System.Drawing.Size(85, 17);
             this.label2.TabIndex = 13;
             this.label2.Text = "Filtrar por:";
             // 
             // FormGestaoArtigos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 332);
+            this.ClientSize = new System.Drawing.Size(590, 270);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox1);
@@ -144,6 +151,7 @@
             this.Controls.Add(this.button1Filtrar);
             this.Controls.Add(this.textBox1Username);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormGestaoArtigos";
             this.Text = "FormGestaoArtigos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

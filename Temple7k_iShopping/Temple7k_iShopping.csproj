@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\FormGestaoTipoArtigosController.cs" />
     <Compile Include="Controller\FormLoginController.cs" />
     <Compile Include="View\FormCompra.cs">
       <SubType>Form</SubType>
