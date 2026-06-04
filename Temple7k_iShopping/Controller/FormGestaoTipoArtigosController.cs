@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,6 +12,8 @@ namespace Temple7k_iShopping.Controller
 {
     internal class FormGestaoTipoArtigosController
     {
+
+
         static public bool AdicionarTipoArtigo(string tipoArtigo, out string message)
         {
             message = "";

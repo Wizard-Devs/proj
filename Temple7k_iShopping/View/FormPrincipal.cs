@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Temple7k_iShopping.View;
+using Temple7k_iShopping.Controller;
 
 namespace Temple7k_iShopping
 {
@@ -15,6 +17,12 @@ namespace Temple7k_iShopping
         public FormPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form_gestao_tipos_de_artigo form = new Form_gestao_tipos_de_artigo();
+            form.Show();
         }
     }
 }
