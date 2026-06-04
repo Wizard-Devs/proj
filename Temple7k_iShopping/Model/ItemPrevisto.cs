@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Temple7k_iShopping.Model
 {
-    internal class ItemPrevisto
+    internal class ItemPrevisto : ItemCompra
     {
-        public int Id { get; set; }
-        public int CompraId { get; set; }
         public int QuantidadePrevista { get; set; }
     }
 }

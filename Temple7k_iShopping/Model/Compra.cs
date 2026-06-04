@@ -14,6 +14,6 @@ namespace Temple7k_iShopping.Model
         public DateTime? DataFechada { get; set; }
         public bool Fechada { get; set; }
         public int utilizadorId { get; set; }
-        public int utilizadorFechouId { get; set; }
+        public int? utilizadorFechouId { get; set; }
     }
 }

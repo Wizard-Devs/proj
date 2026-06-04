@@ -12,6 +12,8 @@ namespace Temple7k_iShopping.Model
         protected override void Seed(iShoppingContext context)
         {
             context.Utilizadores.Add(new Utilizador { Username = "admin", Password = "admin" });
+            context.Artigos.Add(new Artigo { Nome = "ExemploArtigo", TipoArtigoId = 1 });
+            context.TipoArtigo.Add(new TipoArtigo { Tipo = "Exemplo" });
             base.Seed(context);
         }
     }

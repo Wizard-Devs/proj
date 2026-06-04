@@ -30,5 +30,11 @@ namespace Temple7k_iShopping
             FormGestaoOrcamentos form = new FormGestaoOrcamentos();
             form.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormPlaneamentoCompras form = new FormPlaneamentoCompras();
+            form.ShowDialog();
+        }
     }
 }
