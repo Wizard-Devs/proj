@@ -36,6 +36,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1Id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1Sair = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +68,7 @@
             // 
             this.button2Alterar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2Alterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.button2Alterar.Location = new System.Drawing.Point(12, 135);
+            this.button2Alterar.Location = new System.Drawing.Point(12, 125);
             this.button2Alterar.Margin = new System.Windows.Forms.Padding(2);
             this.button2Alterar.Name = "button2Alterar";
             this.button2Alterar.Size = new System.Drawing.Size(80, 32);
@@ -80,7 +81,7 @@
             // 
             this.button3Remover.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.button3Remover.Location = new System.Drawing.Point(12, 195);
+            this.button3Remover.Location = new System.Drawing.Point(11, 175);
             this.button3Remover.Margin = new System.Windows.Forms.Padding(2);
             this.button3Remover.Name = "button3Remover";
             this.button3Remover.Size = new System.Drawing.Size(80, 32);
@@ -104,7 +105,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(284, 151);
+            this.dataGridView1.Size = new System.Drawing.Size(284, 199);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -127,11 +128,25 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Id do Artigo:";
             // 
+            // button1Sair
+            // 
+            this.button1Sair.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1Sair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.button1Sair.Location = new System.Drawing.Point(11, 225);
+            this.button1Sair.Margin = new System.Windows.Forms.Padding(2);
+            this.button1Sair.Name = "button1Sair";
+            this.button1Sair.Size = new System.Drawing.Size(80, 32);
+            this.button1Sair.TabIndex = 8;
+            this.button1Sair.Text = "Sair";
+            this.button1Sair.UseVisualStyleBackColor = false;
+            this.button1Sair.Click += new System.EventHandler(this.button1Sair_Click);
+            // 
             // Form_gestao_tipos_de_artigo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 246);
+            this.ClientSize = new System.Drawing.Size(429, 286);
+            this.Controls.Add(this.button1Sair);
             this.Controls.Add(this.textBox1Id);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
@@ -160,5 +175,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox1Id;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1Sair;
     }
 }

@@ -58,7 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <Compile Include="Controller\FormGestaoOrcamentosController.cs" />
+=======
+    <Compile Include="Controller\FormGestaoArtigosController.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Controller\FormGestaoTipoArtigosController.cs" />
     <Compile Include="Controller\FormLoginController.cs" />
     <Compile Include="View\FormCompra.cs">

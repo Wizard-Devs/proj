@@ -12,5 +12,6 @@ namespace Temple7k_iShopping.Model
         public int Id { get; set; }
         public string Nome { get; set; }
         public int TipoArtigoId { get; set; }
+        public string TipoArtigo { get; set; }
     }
 }

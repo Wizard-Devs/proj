@@ -119,5 +119,10 @@ namespace Temple7k_iShopping
                 CarregarDados();
             }
         }
+
+        private void button1Sair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
