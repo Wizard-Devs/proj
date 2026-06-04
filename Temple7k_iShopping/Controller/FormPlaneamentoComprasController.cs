@@ -17,11 +17,11 @@ namespace Temple7k_iShopping.Controller
             }
         }
 
-        public static List<Artigo> GetArtigos()
+        public static List<Compra> GetCompras()
         {
             using (iShoppingContext db = new iShoppingContext())
             {
-                return db.Artigos.ToList();
+                return db.Compras.ToList();
             }
         }
 

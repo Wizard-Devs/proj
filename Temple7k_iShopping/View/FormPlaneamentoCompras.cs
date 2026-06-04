@@ -21,13 +21,23 @@ namespace Temple7k_iShopping
 
         private void LoadData()
         {
-            dataGridViewPlaneamentoCompras.DataSource = FormPlaneamentoComprasController.GetArtigos();
+            dataGridViewPlaneamentoCompras.DataSource = FormPlaneamentoComprasController.GetCompras();
         }
 
         private void button3CriarAlterar_Click(object sender, EventArgs e)
         {
-            FormCriacaoAlteracao form = new FormCriacaoAlteracao();
-            form.ShowDialog();
+            int idCompra = 0;
+
+            if (dataGridViewPlaneamentoCompras.SelectedRows.Count > 0) {
+                idCompra = (int)dataGridViewPlaneamentoCompras.SelectedRows[0].Cells["Id"]?.Value;
+            }
+
+            FormCriacaoAlteracao form = new FormCriacaoAlteracao(idCompra);
+            var result = form.ShowDialog();
+
+            if (result == DialogResult.OK) {
+                LoadData();
+            }
         }
 
         private void FormPlaneamentoCompras_Load(object sender, EventArgs e)

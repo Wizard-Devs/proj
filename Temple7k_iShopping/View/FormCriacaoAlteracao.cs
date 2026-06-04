@@ -16,10 +16,9 @@ namespace Temple7k_iShopping
     {
         private FormCriacaoAlteracaoController controller;
 
-        public FormCriacaoAlteracao()
-        {
+        public FormCriacaoAlteracao(int compraId = 0) {
             InitializeComponent();
-            controller = new FormCriacaoAlteracaoController();
+            controller = new FormCriacaoAlteracaoController(compraId);
         }
 
         private void UpdateGrid()
@@ -36,6 +35,25 @@ namespace Temple7k_iShopping
             int artigoId = (int)comboBoxArtigos.SelectedValue;
 
             bool success = controller.AddItems(quantidadePrevista, artigoId, out message);
+            MessageBox.Show(message);
+
+            UpdateGrid();
+        }
+
+        private void buttonRemover_Click(object sender, EventArgs e)
+        {
+            int artigoId = (int)dataGridViewItens.CurrentRow.Cells["ArtigoId"].Value;
+            controller.RemoveItem(artigoId);
+
+            UpdateGrid();
+        }
+        private void buttonAlterar_Click(object sender, EventArgs e)
+        {
+            int artigoId = (int)dataGridViewItens.CurrentRow.Cells["ArtigoId"].Value;
+            string quantidadePrevista = textBoxQuantidadePrevista.Text;
+            string message;
+
+            bool success = controller.UpdateItem(artigoId, quantidadePrevista, out message);
             MessageBox.Show(message);
 
             UpdateGrid();
@@ -58,6 +76,27 @@ namespace Temple7k_iShopping
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            string message;
+            string name = textBoxNomeCompra.Text;
+
+            bool success = controller.Save(name, out message);
+            MessageBox.Show(message);
+
+            if (success)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void buttonFiltrar_Click(object sender, EventArgs e)
+        {
+            int tipoId = (int)comboBoxTipoArtigos.SelectedValue;
+            dataGridViewItens.DataSource = FormCriacaoAlteracaoController.GetArtigosPorTipo(tipoId);
         }
     }
 }
