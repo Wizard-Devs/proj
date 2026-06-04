@@ -44,6 +44,8 @@ namespace Temple7k_iShopping
         {
             List<TipoArtigo> filters = FormPlaneamentoComprasController.GetFilters();
             comboBoxFiltrosExistentes.Items.AddRange(filters.Select(filter => filter.Tipo).ToArray());
+
+            LoadData();
         }
 
         private void button2Filtrar_Click(object sender, EventArgs e)
