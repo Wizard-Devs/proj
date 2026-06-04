@@ -41,37 +41,42 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
-            this.label1.Location = new System.Drawing.Point(36, 45);
+            this.label1.Location = new System.Drawing.Point(27, 37);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 22);
+            this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Valor:";
             // 
             // textBoxValorOrcamento
             // 
-            this.textBoxValorOrcamento.Location = new System.Drawing.Point(113, 45);
+            this.textBoxValorOrcamento.Location = new System.Drawing.Point(85, 37);
+            this.textBoxValorOrcamento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxValorOrcamento.Name = "textBoxValorOrcamento";
-            this.textBoxValorOrcamento.Size = new System.Drawing.Size(103, 22);
+            this.textBoxValorOrcamento.Size = new System.Drawing.Size(78, 20);
             this.textBoxValorOrcamento.TabIndex = 1;
             // 
             // btnAdicionar
             // 
             this.btnAdicionar.AutoSize = true;
             this.btnAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.btnAdicionar.Location = new System.Drawing.Point(308, 40);
+            this.btnAdicionar.Location = new System.Drawing.Point(231, 32);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(85, 30);
+            this.btnAdicionar.Size = new System.Drawing.Size(74, 26);
             this.btnAdicionar.TabIndex = 2;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnAlterar
             // 
             this.btnAlterar.AutoSize = true;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.btnAlterar.Location = new System.Drawing.Point(425, 40);
+            this.btnAlterar.Location = new System.Drawing.Point(319, 32);
+            this.btnAlterar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 30);
+            this.btnAlterar.Size = new System.Drawing.Size(56, 26);
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
@@ -80,9 +85,10 @@
             // 
             this.btnRemover.AutoSize = true;
             this.btnRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.btnRemover.Location = new System.Drawing.Point(533, 40);
+            this.btnRemover.Location = new System.Drawing.Point(400, 32);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(83, 30);
+            this.btnRemover.Size = new System.Drawing.Size(73, 26);
             this.btnRemover.TabIndex = 4;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
@@ -90,24 +96,26 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(40, 115);
+            this.dataGridView1.Location = new System.Drawing.Point(30, 93);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(720, 309);
+            this.dataGridView1.Size = new System.Drawing.Size(540, 251);
             this.dataGridView1.TabIndex = 5;
             // 
             // FormGestaoOrcamentos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.textBoxValorOrcamento);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormGestaoOrcamentos";
             this.Text = "FormGestaoOrcamentos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

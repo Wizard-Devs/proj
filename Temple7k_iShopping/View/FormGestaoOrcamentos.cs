@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Temple7k_iShopping.Controller;
 
 namespace Temple7k_iShopping.View
 {
@@ -15,6 +16,18 @@ namespace Temple7k_iShopping.View
         public FormGestaoOrcamentos()
         {
             InitializeComponent();
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            string message;
+            string value = textBoxValorOrcamento.Text.Trim();
+
+            if (!FormGestaoOrcamentosController.Validate(value, out message))
+            {
+                MessageBox.Show(message);
+                return;
+            }
         }
     }
 }
