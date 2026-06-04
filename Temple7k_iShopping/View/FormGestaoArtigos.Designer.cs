@@ -63,7 +63,7 @@
             this.button1Filtrar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1Filtrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.button1Filtrar.Location = new System.Drawing.Point(518, 3);
-            this.button1Filtrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1Filtrar.Margin = new System.Windows.Forms.Padding(2);
             this.button1Filtrar.Name = "button1Filtrar";
             this.button1Filtrar.Size = new System.Drawing.Size(69, 32);
             this.button1Filtrar.TabIndex = 7;
@@ -75,7 +75,7 @@
             this.button3Remover.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.button3Remover.Location = new System.Drawing.Point(346, 46);
-            this.button3Remover.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3Remover.Margin = new System.Windows.Forms.Padding(2);
             this.button3Remover.Name = "button3Remover";
             this.button3Remover.Size = new System.Drawing.Size(74, 32);
             this.button3Remover.TabIndex = 10;
@@ -87,7 +87,7 @@
             this.button2Alterar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2Alterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.button2Alterar.Location = new System.Drawing.Point(256, 46);
-            this.button2Alterar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2Alterar.Margin = new System.Windows.Forms.Padding(2);
             this.button2Alterar.Name = "button2Alterar";
             this.button2Alterar.Size = new System.Drawing.Size(74, 32);
             this.button2Alterar.TabIndex = 9;
@@ -99,7 +99,7 @@
             this.button1Adicionar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1Adicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.button1Adicionar.Location = new System.Drawing.Point(155, 46);
-            this.button1Adicionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1Adicionar.Margin = new System.Windows.Forms.Padding(2);
             this.button1Adicionar.Name = "button1Adicionar";
             this.button1Adicionar.Size = new System.Drawing.Size(84, 32);
             this.button1Adicionar.TabIndex = 8;
@@ -110,7 +110,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(340, 10);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(175, 21);
             this.comboBox1.TabIndex = 11;
@@ -119,12 +119,13 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 84);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(575, 176);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // label2
             // 
@@ -151,7 +152,7 @@
             this.Controls.Add(this.button1Filtrar);
             this.Controls.Add(this.textBox1Username);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormGestaoArtigos";
             this.Text = "FormGestaoArtigos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

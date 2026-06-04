@@ -16,5 +16,10 @@ namespace Temple7k_iShopping
         {
             InitializeComponent();
         }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
