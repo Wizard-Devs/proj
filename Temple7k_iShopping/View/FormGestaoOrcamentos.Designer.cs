@@ -33,8 +33,8 @@
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridViewOrcamentos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrcamentos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -80,6 +80,7 @@
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnRemover
             // 
@@ -92,24 +93,25 @@
             this.btnRemover.TabIndex = 4;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
-            // dataGridView1
+            // dataGridViewOrcamentos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 93);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(540, 251);
-            this.dataGridView1.TabIndex = 5;
+            this.dataGridViewOrcamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOrcamentos.Location = new System.Drawing.Point(30, 104);
+            this.dataGridViewOrcamentos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewOrcamentos.Name = "dataGridViewOrcamentos";
+            this.dataGridViewOrcamentos.RowHeadersWidth = 51;
+            this.dataGridViewOrcamentos.RowTemplate.Height = 24;
+            this.dataGridViewOrcamentos.Size = new System.Drawing.Size(540, 251);
+            this.dataGridViewOrcamentos.TabIndex = 5;
             // 
             // FormGestaoOrcamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewOrcamentos);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnAdicionar);
@@ -118,7 +120,8 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormGestaoOrcamentos";
             this.Text = "FormGestaoOrcamentos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FormGestaoOrcamentos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrcamentos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,6 +134,6 @@
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnRemover;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewOrcamentos;
     }
 }

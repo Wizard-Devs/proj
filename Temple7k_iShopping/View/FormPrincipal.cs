@@ -24,5 +24,11 @@ namespace Temple7k_iShopping
             Form_gestao_tipos_de_artigo form = new Form_gestao_tipos_de_artigo();
             form.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormGestaoOrcamentos form = new FormGestaoOrcamentos();
+            form.ShowDialog();
+        }
     }
 }

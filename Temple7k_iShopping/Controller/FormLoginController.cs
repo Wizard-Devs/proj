@@ -29,7 +29,7 @@ namespace Temple7k_iShopping.Controller
                     return false;
                 }
 
-                Sessao.UtilizadorAtual = user.Username;
+                Sessao.UtilizadorAtual = user;
                 message = "Autenticação bem sucedida";
             }
 

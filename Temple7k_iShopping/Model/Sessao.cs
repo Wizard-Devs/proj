@@ -8,6 +8,6 @@ namespace Temple7k_iShopping.Model
 {
     internal class Sessao
     {
-        static public string UtilizadorAtual { get; set; }
+        static public Utilizador UtilizadorAtual { get; set; }
     }
 }
