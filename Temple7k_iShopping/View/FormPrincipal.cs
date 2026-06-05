@@ -25,10 +25,17 @@ namespace Temple7k_iShopping
             form.Show();
         }
 
+<<<<<<< Updated upstream
         private void button3_Click(object sender, EventArgs e)
         {
             FormGestaoOrcamentos form = new FormGestaoOrcamentos();
             form.ShowDialog();
+=======
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormGestaoArtigos form = new FormGestaoArtigos();
+            form.Show();
+>>>>>>> Stashed changes
         }
 
         private void button4_Click(object sender, EventArgs e)
