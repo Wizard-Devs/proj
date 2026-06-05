@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,7 +14,7 @@ namespace Temple7k_iShopping.Controller
     {
         public List<ItemPrevisto> Items { get; private set; }
         public int CompraId { get; private set; }
-        public bool IsFechada { get; private set; }
+        public bool isClosed { get; private set; }
 
         public FormCriacaoAlteracaoController(int compraId) { 
             Items = new List<ItemPrevisto>();
@@ -25,7 +27,7 @@ namespace Temple7k_iShopping.Controller
                     Compra compra = db.Compras.Find(compraId);
                     if (compra != null)
                     {
-                        this.IsFechada = compra.Fechada;
+                        this.isClosed = compra.Fechada;
                         this.Items = db.ItensPrevistos
                             .Include("Artigo")
                             .Where(i => i.CompraId == compraId).ToList();
@@ -33,6 +35,18 @@ namespace Temple7k_iShopping.Controller
                 }
             }
 
+        }
+
+        private bool IsCompraFechada(out string message)
+        {
+            if (this.isClosed)
+            {
+                message = "Esta compra está fechada e não pode ser alterada.";
+                return true;
+            }
+
+            message = "";
+            return false;
         }
 
         private bool Validate(string name, out string message)
@@ -69,16 +83,15 @@ namespace Temple7k_iShopping.Controller
             }
         }
 
-        public static List<Artigo> GetArtigosPorTipo(int tipoId)
+        public List<ItemPrevisto> GetArtigosPorTipo(int tipoId, int artigoId)
         {
-            using (iShoppingContext db = new iShoppingContext())
-            {
-                return db.Artigos.Where(a => a.TipoArtigoId == tipoId).ToList();
-            }
+            return this.Items.Where(i => i.ArtigoId == artigoId && i.Artigo.TipoArtigoId == tipoId).ToList();
         }
 
         public bool AddItems(string quantidadePrevista, int artigoId, out string message) {
             int parsedQuantidadePrevista;
+
+            if (this.IsCompraFechada(out message)) return false;
 
             if (!int.TryParse(quantidadePrevista, out parsedQuantidadePrevista) || parsedQuantidadePrevista <= 0)
             {
@@ -92,26 +105,37 @@ namespace Temple7k_iShopping.Controller
                 return false;
             }
 
-            this.Items.Add(new ItemPrevisto
+            using (iShoppingContext db = new iShoppingContext())
             {
-                ArtigoId = artigoId,
-                QuantidadePrevista = parsedQuantidadePrevista,
-                utilizadorCriouId = Sessao.UtilizadorAtual.Id,
-                DataCriacao = DateTime.Now
-            });
+                Artigo artigo = db.Artigos.Find(artigoId);
+
+                this.Items.Add(new ItemPrevisto
+                {
+                    ArtigoId = artigoId,
+                    Artigo = artigo,
+                    QuantidadePrevista = parsedQuantidadePrevista,
+                    utilizadorCriouId = Sessao.UtilizadorAtual.Id,
+                    DataCriacao = DateTime.Now
+                });
+            }
 
             message = "Item adicionado com sucesso.";
             return true;
         }
 
-        public void RemoveItem(int artigoId)
+        public bool RemoveItem(int artigoId, out string message)
         {
+            if (IsCompraFechada(out message)) return false;
+
             this.Items.RemoveAll(i => i.ArtigoId == artigoId);
+            return true;
         }
 
         public bool UpdateItem(int artigoId, string novaQuantidadePrevista, out string message)
         {
             int parsedQuantidadePrevista;
+
+            if (IsCompraFechada(out message)) return false;
 
             if (!int.TryParse(novaQuantidadePrevista, out parsedQuantidadePrevista) || parsedQuantidadePrevista <= 0)
             {
@@ -136,10 +160,8 @@ namespace Temple7k_iShopping.Controller
 
         public bool Save(string name, out string message)
         {
-            if (!Validate(name, out message))
-            {
-                return false;
-            }
+            if (!Validate(name, out message)) return false;
+            if (IsCompraFechada(out message)) return false;
 
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -166,13 +188,10 @@ namespace Temple7k_iShopping.Controller
                         return false;
                     }
 
-                    if (compra.Fechada)
+                    if (name.Trim() != "")
                     {
-                        message = "Esta compra está fechada e não pode ser alterada.";
-                        return false;
+                        compra.Nome = name.Trim();
                     }
-
-                    compra.Nome = name.Trim();
                 }
 
                 db.SaveChanges(); // salva para gerar o ID da compra
@@ -194,13 +213,16 @@ namespace Temple7k_iShopping.Controller
                     
                     if (itemExists == null)
                     {
-                        item.CompraId = compra.Id;
-                        item.DataCriacao = item.DataCriacao;
-                        item.utilizadorCriouId = item.utilizadorCriouId;
-                        item.QuantidadeAdquirida = 0;
-                        item.PrecoUnitario = 0;
 
-                        db.ItensPrevistos.Add(item);
+                        db.ItensPrevistos.Add(new ItemPrevisto
+                        {
+                            CompraId = compra.Id,
+                            ArtigoId = item.ArtigoId,
+                            DataCriacao = item.DataCriacao,
+                            utilizadorCriouId = item.utilizadorCriouId,
+                            QuantidadeAdquirida = 0,
+                            PrecoUnitario = 0,
+                        });
                     }
                     else
                     {
@@ -213,7 +235,15 @@ namespace Temple7k_iShopping.Controller
                 db.SaveChanges();
             }
 
-            message = "Planeamento de compra criado com sucesso.";
+            if (this.CompraId > 0)
+            {
+                message = "Planeamento de compra alterado com sucesso.";
+            }
+            else
+            {
+                message = "Planeamento de compra criado com sucesso.";
+            }
+
             return true;
         }
     }

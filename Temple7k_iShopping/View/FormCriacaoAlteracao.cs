@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Infrastructure.DependencyResolution;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,16 +16,51 @@ namespace Temple7k_iShopping
     public partial class FormCriacaoAlteracao : Form
     {
         private FormCriacaoAlteracaoController controller;
+        private int compraId;
+        private bool isClosed;
 
-        public FormCriacaoAlteracao(int compraId = 0) {
+        public FormCriacaoAlteracao(int compraId, bool isClosed) {
             InitializeComponent();
             controller = new FormCriacaoAlteracaoController(compraId);
+            this.compraId = compraId;
+            this.isClosed = isClosed;
         }
 
-        private void UpdateGrid()
+        private void UpdateGrid(bool onLoad = false)
         {
             dataGridViewItens.DataSource = null;
-            dataGridViewItens.DataSource = controller.Items;
+
+            if (onLoad)
+            {
+                using (iShoppingContext db = new iShoppingContext())
+                {
+                    dataGridViewItens.DataSource = db.ItensPrevistos
+                        .Where(i => i.CompraId == this.compraId)
+                        .Select(i => new
+                        {
+                            i.Id,
+                            i.ArtigoId,
+                            Artigo = i.Artigo.Nome,
+                            i.QuantidadePrevista,
+                            i.DataCriacao,
+                            i.DataAlteracao,
+                            i.utilizadorCriouId,
+                            i.utilizadorAlterouId
+                        }).ToList();
+                }
+            } else
+            {
+                dataGridViewItens.DataSource = this.controller.Items.Select(i => new {
+                    i.Id,
+                    i.ArtigoId,
+                    Artigo = i.Artigo.Nome,
+                    i.QuantidadePrevista,
+                    i.DataCriacao,
+                    i.DataAlteracao,
+                    i.utilizadorCriouId,
+                    i.utilizadorAlterouId
+                }).ToList();
+            }
         }
 
         private void buttonAdicionar_Click(object sender, EventArgs e)
@@ -42,8 +78,16 @@ namespace Temple7k_iShopping
 
         private void buttonRemover_Click(object sender, EventArgs e)
         {
+            string message;
             int artigoId = (int)dataGridViewItens.CurrentRow.Cells["ArtigoId"].Value;
-            controller.RemoveItem(artigoId);
+
+            bool success = controller.RemoveItem(artigoId, out message);
+
+            if (!success)
+            {
+                MessageBox.Show(message);
+                return;
+            }
 
             UpdateGrid();
         }
@@ -70,6 +114,13 @@ namespace Temple7k_iShopping
             comboBoxTipoArtigos.DataSource = tiposArtigos;
             comboBoxTipoArtigos.DisplayMember = "Tipo";
             comboBoxTipoArtigos.ValueMember = "Id";
+
+            if (this.isClosed)
+            {
+                MessageBox.Show("A compra esta fechada, pode ser apenas visualizada.");
+            }
+
+            UpdateGrid(true);
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -96,7 +147,9 @@ namespace Temple7k_iShopping
         private void buttonFiltrar_Click(object sender, EventArgs e)
         {
             int tipoId = (int)comboBoxTipoArtigos.SelectedValue;
-            dataGridViewItens.DataSource = FormCriacaoAlteracaoController.GetArtigosPorTipo(tipoId);
+            int artigoId = (int)comboBoxArtigos.SelectedValue;
+
+            dataGridViewItens.DataSource = this.controller.GetArtigosPorTipo(tipoId, artigoId);
         }
     }
 }
