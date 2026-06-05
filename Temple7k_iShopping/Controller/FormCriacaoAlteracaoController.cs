@@ -37,7 +37,7 @@ namespace Temple7k_iShopping.Controller
 
         private bool Validate(string name, out string message)
         {
-            if (name.Trim() == "")
+            if (name.Trim() == "" && this.CompraId == 0)
             {
                 message = "O nome do planeamento de compra não pode ser vazio.";
                 return false;
@@ -92,7 +92,13 @@ namespace Temple7k_iShopping.Controller
                 return false;
             }
 
-            this.Items.Add(new ItemPrevisto { ArtigoId = artigoId, QuantidadePrevista = parsedQuantidadePrevista });
+            this.Items.Add(new ItemPrevisto
+            {
+                ArtigoId = artigoId,
+                QuantidadePrevista = parsedQuantidadePrevista,
+                utilizadorCriouId = Sessao.UtilizadorAtual.Id,
+                DataCriacao = DateTime.Now
+            });
 
             message = "Item adicionado com sucesso.";
             return true;
@@ -120,7 +126,7 @@ namespace Temple7k_iShopping.Controller
                 return false;
             }
 
-            message = "";
+            message = "Item atualizado com sucesso.";
             item.QuantidadePrevista = parsedQuantidadePrevista;
             item.utilizadorAlterouId = Sessao.UtilizadorAtual.Id;
             item.DataAlteracao = DateTime.Now;
@@ -173,6 +179,7 @@ namespace Temple7k_iShopping.Controller
 
                 List<ItemPrevisto> itensDB = db.ItensPrevistos.Where(i => i.CompraId == compra.Id).ToList();
 
+                // sincronizar dados locais com a DB
                 foreach (ItemPrevisto itemDB in itensDB)
                 {
                     if (!this.Items.Any(i => i.ArtigoId == itemDB.ArtigoId))
@@ -188,8 +195,8 @@ namespace Temple7k_iShopping.Controller
                     if (itemExists == null)
                     {
                         item.CompraId = compra.Id;
-                        item.DataCriacao = DateTime.Now;
-                        item.utilizadorCriouId = Sessao.UtilizadorAtual.Id;
+                        item.DataCriacao = item.DataCriacao;
+                        item.utilizadorCriouId = item.utilizadorCriouId;
                         item.QuantidadeAdquirida = 0;
                         item.PrecoUnitario = 0;
 
