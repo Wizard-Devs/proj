@@ -64,6 +64,7 @@
     <Compile Include="Controller\FormGestaoTipoArtigosController.cs" />
     <Compile Include="Controller\FormLoginController.cs" />
     <Compile Include="Controller\FormPlaneamentoComprasController.cs" />
+    <Compile Include="Controller\FormPrincipalController.cs" />
     <Compile Include="View\FormCompra.cs">
       <SubType>Form</SubType>
     </Compile>

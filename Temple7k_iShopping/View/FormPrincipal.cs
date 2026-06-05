@@ -19,6 +19,12 @@ namespace Temple7k_iShopping
             InitializeComponent();
         }
 
+        private void UpdateGrid()
+        {
+            dataGridViewPrincipal.DataSource = null;
+            dataGridViewPrincipal.DataSource = FormPrincipalController.GetOpenCompras();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Form_gestao_tipos_de_artigo form = new Form_gestao_tipos_de_artigo();
@@ -41,6 +47,12 @@ namespace Temple7k_iShopping
         {
             FormPlaneamentoCompras form = new FormPlaneamentoCompras();
             form.ShowDialog();
+            UpdateGrid();
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            UpdateGrid();
         }
     }
 }

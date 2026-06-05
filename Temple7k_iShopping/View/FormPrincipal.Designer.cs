@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewPrincipal = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -36,16 +36,16 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewPrincipal
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(204, 36);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 319);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPrincipal.Location = new System.Drawing.Point(204, 36);
+            this.dataGridViewPrincipal.Name = "dataGridViewPrincipal";
+            this.dataGridViewPrincipal.Size = new System.Drawing.Size(240, 319);
+            this.dataGridViewPrincipal.TabIndex = 0;
             // 
             // button1
             // 
@@ -126,10 +126,11 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewPrincipal);
             this.Name = "FormPrincipal";
             this.Text = "FormPrincipal";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrincipal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,7 +138,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewPrincipal;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

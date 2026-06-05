@@ -220,6 +220,7 @@ namespace Temple7k_iShopping.Controller
                             ArtigoId = item.ArtigoId,
                             DataCriacao = item.DataCriacao,
                             utilizadorCriouId = item.utilizadorCriouId,
+                            QuantidadePrevista = item.QuantidadePrevista,
                             QuantidadeAdquirida = 0,
                             PrecoUnitario = 0,
                         });
