@@ -133,7 +133,7 @@ namespace Temple7k_iShopping.Controller
 
         public bool UpdateItem(int artigoId, string novaQuantidadePrevista, out string message)
         {
-            int parsedQuantidadePrevista;
+            int parsedQuantidadePrevista = 0;
 
             if (IsCompraFechada(out message)) return false;
 

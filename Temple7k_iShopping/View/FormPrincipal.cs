@@ -54,5 +54,19 @@ namespace Temple7k_iShopping
         {
             UpdateGrid();
         }
+
+        private void buttonExportar_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Ficheiros CSV (*.csv)|*.csv";
+            sfd.Title = "Guardar ficheiro CSV";
+            sfd.FileName = "compras_fechadas.csv";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                FormPrincipalController.ExportarCsv(sfd.FileName);
+                MessageBox.Show("Ficheiro CSV exportado com sucesso.");
+            }
+        }
     }
 }

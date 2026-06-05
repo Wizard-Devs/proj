@@ -36,6 +36,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.dataGridViewPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPrincipal.Location = new System.Drawing.Point(204, 36);
             this.dataGridViewPrincipal.Name = "dataGridViewPrincipal";
-            this.dataGridViewPrincipal.Size = new System.Drawing.Size(240, 319);
+            this.dataGridViewPrincipal.Size = new System.Drawing.Size(358, 381);
             this.dataGridViewPrincipal.TabIndex = 0;
             // 
             // button1
@@ -108,17 +109,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
             this.label1.Location = new System.Drawing.Point(201, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Compras:";
+            // 
+            // buttonExportar
+            // 
+            this.buttonExportar.Location = new System.Drawing.Point(38, 376);
+            this.buttonExportar.Name = "buttonExportar";
+            this.buttonExportar.Size = new System.Drawing.Size(117, 41);
+            this.buttonExportar.TabIndex = 8;
+            this.buttonExportar.Text = "Exportar Compras Fechadas";
+            this.buttonExportar.UseVisualStyleBackColor = true;
+            this.buttonExportar.Click += new System.EventHandler(this.buttonExportar_Click);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 363);
+            this.ClientSize = new System.Drawing.Size(574, 429);
+            this.Controls.Add(this.buttonExportar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -146,5 +159,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonExportar;
     }
 }
