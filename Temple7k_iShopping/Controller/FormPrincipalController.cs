@@ -15,7 +15,7 @@ namespace Temple7k_iShopping.Controller
         {
             using (iShoppingContext db = new iShoppingContext())
             {
-                return db.Compras.Where(c => c.Fechada == false).ToList();
+                return db.Compras.Where(c => !c.Fechada).ToList();
             }
         }
 
@@ -26,7 +26,7 @@ namespace Temple7k_iShopping.Controller
                 List<ItemCompra> items = db.ItensCompra
                     .Include("Compra")
                     .Include("Artigo")
-                    .Where(i => i.Compra.Fechada == true)
+                    .Where(i => i.Compra.Fechada)
                     .OrderBy(i => i.CompraId)
                     .ToList();
 
