@@ -30,7 +30,7 @@ namespace Temple7k_iShopping.Controller
                     .OrderBy(i => i.CompraId)
                     .ToList();
 
-                using (StreamWriter sw = new StreamWriter(caminho, false))
+                using (StreamWriter sw = new StreamWriter(caminho, false, Encoding.UTF8))
                 {
                     sw.WriteLine("Id;NomeCompra;DataCriacao;DataFechada;NomeArtigo;ArtigoPrevisto;ArtigoNaoPrevisto;QuantidadePrevista;QuantidadeAdquirida;PrecoUnitario");
 
