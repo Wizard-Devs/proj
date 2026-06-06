@@ -110,5 +110,11 @@ namespace Temple7k_iShopping
             FormEstatisticas form = new FormEstatisticas();
             form.ShowDialog();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            FormGestaoUtilizadores form = new FormGestaoUtilizadores();
+            form.ShowDialog();
+        }
     }
 }

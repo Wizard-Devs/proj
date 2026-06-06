@@ -37,6 +37,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonExportar = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,12 +46,12 @@
             this.dataGridViewPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPrincipal.Location = new System.Drawing.Point(204, 36);
             this.dataGridViewPrincipal.Name = "dataGridViewPrincipal";
-            this.dataGridViewPrincipal.Size = new System.Drawing.Size(358, 381);
+            this.dataGridViewPrincipal.Size = new System.Drawing.Size(358, 467);
             this.dataGridViewPrincipal.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(38, 12);
+            this.button1.Location = new System.Drawing.Point(42, 98);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 41);
             this.button1.TabIndex = 1;
@@ -60,7 +61,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(38, 72);
+            this.button2.Location = new System.Drawing.Point(42, 158);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 41);
             this.button2.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(38, 134);
+            this.button3.Location = new System.Drawing.Point(42, 220);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(117, 41);
             this.button3.TabIndex = 3;
@@ -80,7 +81,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(38, 195);
+            this.button4.Location = new System.Drawing.Point(42, 281);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(117, 41);
             this.button4.TabIndex = 4;
@@ -90,7 +91,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(38, 255);
+            this.button5.Location = new System.Drawing.Point(42, 341);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(117, 41);
             this.button5.TabIndex = 5;
@@ -100,7 +101,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(38, 314);
+            this.button6.Location = new System.Drawing.Point(42, 400);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(117, 41);
             this.button6.TabIndex = 6;
@@ -120,7 +121,7 @@
             // 
             // buttonExportar
             // 
-            this.buttonExportar.Location = new System.Drawing.Point(38, 376);
+            this.buttonExportar.Location = new System.Drawing.Point(42, 462);
             this.buttonExportar.Name = "buttonExportar";
             this.buttonExportar.Size = new System.Drawing.Size(117, 41);
             this.buttonExportar.TabIndex = 8;
@@ -128,11 +129,22 @@
             this.buttonExportar.UseVisualStyleBackColor = true;
             this.buttonExportar.Click += new System.EventHandler(this.buttonExportar_Click);
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(42, 37);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(117, 41);
+            this.button7.TabIndex = 9;
+            this.button7.Text = "Gestão Utilizador";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 429);
+            this.ClientSize = new System.Drawing.Size(574, 517);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.buttonExportar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button6);
@@ -162,5 +174,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonExportar;
+        private System.Windows.Forms.Button button7;
     }
 }
