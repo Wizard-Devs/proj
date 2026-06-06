@@ -68,5 +68,18 @@ namespace Temple7k_iShopping
                 MessageBox.Show("Ficheiro CSV exportado com sucesso.");
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FormCompra form = new FormCompra();
+            form.ShowDialog();
+            UpdateGrid();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FormEstatisticas form = new FormEstatisticas();
+            form.ShowDialog();
+        }
     }
 }
