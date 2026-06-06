@@ -28,14 +28,16 @@ namespace Temple7k_iShopping
         {
             int idCompra = 0;
             bool isClosed = false;
+            string nomeCompra = "";
 
             if (dataGridViewPlaneamentoCompras.SelectedRows.Count > 0) {
                 idCompra = (int)dataGridViewPlaneamentoCompras.SelectedRows[0].Cells["Id"]?.Value;
+                nomeCompra = (string)dataGridViewPlaneamentoCompras.SelectedRows[0].Cells["Nome"]?.Value;
                 isClosed = (bool)dataGridViewPlaneamentoCompras.SelectedRows[0].Cells["Fechada"]?.Value;
 
             }
 
-            FormCriacaoAlteracao form = new FormCriacaoAlteracao(idCompra, isClosed);
+            FormCriacaoAlteracao form = new FormCriacaoAlteracao(idCompra, isClosed, nomeCompra);
             var result = form.ShowDialog();
 
             if (result == DialogResult.OK) {

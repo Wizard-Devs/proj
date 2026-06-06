@@ -38,11 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxQuantidadePrevista = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxTipoArtigos = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,11 +103,12 @@
             this.dataGridViewItens.RowTemplate.Height = 24;
             this.dataGridViewItens.Size = new System.Drawing.Size(567, 184);
             this.dataGridViewItens.TabIndex = 12;
+            this.dataGridViewItens.SelectionChanged += new System.EventHandler(this.dataGridViewItens_SelectionChanged);
             // 
             // comboBoxArtigos
             // 
             this.comboBoxArtigos.FormattingEnabled = true;
-            this.comboBoxArtigos.Location = new System.Drawing.Point(66, 58);
+            this.comboBoxArtigos.Location = new System.Drawing.Point(138, 58);
             this.comboBoxArtigos.Name = "comboBoxArtigos";
             this.comboBoxArtigos.Size = new System.Drawing.Size(144, 21);
             this.comboBoxArtigos.TabIndex = 13;
@@ -142,24 +140,6 @@
             this.textBoxQuantidadePrevista.Size = new System.Drawing.Size(144, 20);
             this.textBoxQuantidadePrevista.TabIndex = 16;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(232, 61);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Tipo do Artigo:";
-            // 
-            // comboBoxTipoArtigos
-            // 
-            this.comboBoxTipoArtigos.FormattingEnabled = true;
-            this.comboBoxTipoArtigos.Location = new System.Drawing.Point(313, 58);
-            this.comboBoxTipoArtigos.Name = "comboBoxTipoArtigos";
-            this.comboBoxTipoArtigos.Size = new System.Drawing.Size(144, 21);
-            this.comboBoxTipoArtigos.TabIndex = 17;
-            // 
             // buttonSave
             // 
             this.buttonSave.Location = new System.Drawing.Point(403, 401);
@@ -182,27 +162,13 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // buttonFiltrar
-            // 
-            this.buttonFiltrar.Location = new System.Drawing.Point(488, 46);
-            this.buttonFiltrar.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonFiltrar.Name = "buttonFiltrar";
-            this.buttonFiltrar.Size = new System.Drawing.Size(86, 42);
-            this.buttonFiltrar.TabIndex = 21;
-            this.buttonFiltrar.Text = "Filtrar";
-            this.buttonFiltrar.UseVisualStyleBackColor = true;
-            this.buttonFiltrar.Click += new System.EventHandler(this.buttonFiltrar_Click);
-            // 
             // FormCriacaoAlteracao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 454);
-            this.Controls.Add(this.buttonFiltrar);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBoxTipoArtigos);
             this.Controls.Add(this.textBoxQuantidadePrevista);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -235,10 +201,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxQuantidadePrevista;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBoxTipoArtigos;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonFiltrar;
     }
 }

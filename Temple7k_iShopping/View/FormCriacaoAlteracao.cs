@@ -18,12 +18,14 @@ namespace Temple7k_iShopping
         private FormCriacaoAlteracaoController controller;
         private int compraId;
         private bool isClosed;
+        private string nomeCompra;
 
-        public FormCriacaoAlteracao(int compraId, bool isClosed) {
+        public FormCriacaoAlteracao(int compraId, bool isClosed, string nomeCompra) {
             InitializeComponent();
             controller = new FormCriacaoAlteracaoController(compraId);
             this.compraId = compraId;
             this.isClosed = isClosed;
+            this.nomeCompra = nomeCompra;
         }
 
         private void UpdateGrid(bool onLoad = false)
@@ -41,6 +43,7 @@ namespace Temple7k_iShopping
                             i.Id,
                             i.ArtigoId,
                             Artigo = i.Artigo.Nome,
+                            TipoArtigo = db.TipoArtigo.FirstOrDefault(t => t.Id == i.Artigo.TipoArtigoId).Tipo,
                             i.QuantidadePrevista,
                             i.DataCriacao,
                             i.DataAlteracao,
@@ -110,10 +113,7 @@ namespace Temple7k_iShopping
             comboBoxArtigos.DisplayMember = "Nome";
             comboBoxArtigos.ValueMember = "Id";
 
-            List<TipoArtigo> tiposArtigos = FormCriacaoAlteracaoController.GetTiposArtigos();
-            comboBoxTipoArtigos.DataSource = tiposArtigos;
-            comboBoxTipoArtigos.DisplayMember = "Tipo";
-            comboBoxTipoArtigos.ValueMember = "Id";
+            textBoxNomeCompra.Text = this.nomeCompra;
 
             if (this.isClosed)
             {
@@ -144,12 +144,16 @@ namespace Temple7k_iShopping
             }
         }
 
-        private void buttonFiltrar_Click(object sender, EventArgs e)
+        private void dataGridViewItens_SelectionChanged(object sender, EventArgs e)
         {
-            int tipoId = (int)comboBoxTipoArtigos.SelectedValue;
-            int artigoId = (int)comboBoxArtigos.SelectedValue;
+            if (dataGridViewItens.CurrentRow == null) return;
 
-            dataGridViewItens.DataSource = this.controller.GetArtigosPorTipo(tipoId, artigoId);
+            DataGridViewRow row = dataGridViewItens.CurrentRow;
+
+            if (row.Cells["QuantidadePrevista"].Value == null) return;
+
+            textBoxQuantidadePrevista.Text = row.Cells["QuantidadePrevista"].Value.ToString();
+            comboBoxArtigos.SelectedValue = (int)row.Cells["ArtigoId"].Value;
         }
     }
 }
