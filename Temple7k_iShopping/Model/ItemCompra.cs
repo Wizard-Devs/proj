@@ -19,6 +19,7 @@ namespace Temple7k_iShopping.Model
         public int? utilizadorAlterouId { get; set; }
 
         public virtual Artigo Artigo { get; set; }
+        public virtual TipoArtigo TipoArtigo { get; set; }
         public virtual Compra Compra { get; set; }
     }
 }

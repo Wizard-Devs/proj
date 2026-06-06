@@ -83,11 +83,6 @@ namespace Temple7k_iShopping.Controller
             }
         }
 
-        public List<ItemPrevisto> GetArtigosPorTipo(int tipoId, int artigoId)
-        {
-            return this.Items.Where(i => i.ArtigoId == artigoId && i.Artigo.TipoArtigoId == tipoId).ToList();
-        }
-
         public bool AddItems(string quantidadePrevista, int artigoId, out string message) {
             int parsedQuantidadePrevista;
 
@@ -108,11 +103,13 @@ namespace Temple7k_iShopping.Controller
             using (iShoppingContext db = new iShoppingContext())
             {
                 Artigo artigo = db.Artigos.Find(artigoId);
+                TipoArtigo tipoArtigo = db.TipoArtigo.Find(artigo.TipoArtigoId);
 
                 this.Items.Add(new ItemPrevisto
                 {
                     ArtigoId = artigoId,
                     Artigo = artigo,
+                    TipoArtigo = tipoArtigo,
                     QuantidadePrevista = parsedQuantidadePrevista,
                     utilizadorCriouId = Sessao.UtilizadorAtual.Id,
                     DataCriacao = DateTime.Now

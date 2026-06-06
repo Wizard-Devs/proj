@@ -57,6 +57,7 @@ namespace Temple7k_iShopping
                     i.Id,
                     i.ArtigoId,
                     Artigo = i.Artigo.Nome,
+                    TipoArtigo = i.TipoArtigo.Tipo,
                     i.QuantidadePrevista,
                     i.DataCriacao,
                     i.DataAlteracao,
