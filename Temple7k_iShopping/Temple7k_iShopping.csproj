@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Controller\FormCompraController.cs" />
     <Compile Include="Controller\FormCriacaoAlteracaoController.cs" />
+    <Compile Include="Controller\FormEstatisticaController.cs" />
     <Compile Include="Controller\FormGestaoOrcamentosController.cs" />
     <Compile Include="Controller\FormGestaoArtigosController.cs" />
     <Compile Include="Controller\FormGestaoTipoArtigosController.cs" />

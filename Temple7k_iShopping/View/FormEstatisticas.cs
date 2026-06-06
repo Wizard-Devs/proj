@@ -21,7 +21,7 @@ namespace Temple7k_iShopping.View
         private void UpdateGrid()
         {
             dataGridViewOrçamentoMes.DataSource = null;
-            dataGridViewOrçamentoMes.DataSource = FormGestaoOrcamentosController.GetOrcamentos();
+            dataGridViewOrçamentoMes.DataSource = FormEstatisticaController.GetOrcamentos();
         }
 
         private void tabPageListagem_Click(object sender, EventArgs e)
@@ -32,6 +32,11 @@ namespace Temple7k_iShopping.View
         private void FormEstatisticas_Load(object sender, EventArgs e)
         {
             UpdateGrid();
+        }
+
+        private void dataGridViewOrçamentoMes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
