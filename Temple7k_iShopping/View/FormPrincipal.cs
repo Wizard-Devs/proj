@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Temple7k_iShopping.View;
 using Temple7k_iShopping.Controller;
+using Temple7k_iShopping.Model;
+using Temple7k_iShopping.View;
 
 namespace Temple7k_iShopping
 {
@@ -74,6 +75,14 @@ namespace Temple7k_iShopping
             int idCompra = 0;
             string nameCompra = "";
 
+            Orcamento orcamento = FormCompraController.GetOrcamento();
+
+            if (orcamento == null)
+            {
+                MessageBox.Show("Não foi possível obter o orçamento para o mês atual.");
+                return;
+            }
+
             if (dataGridViewPrincipal.SelectedRows.Count > 0)
             {
                 idCompra = (int)dataGridViewPrincipal.SelectedRows[0].Cells["Id"]?.Value;
@@ -86,8 +95,7 @@ namespace Temple7k_iShopping
                 MessageBox.Show("Nenhuma compra selecionada. Por favor selecione uma compra.");
                 return;
             }
-
-
+            
             FormCompra form = new FormCompra(idCompra, nameCompra);
             var result = form.ShowDialog();
 

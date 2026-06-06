@@ -46,6 +46,24 @@ namespace Temple7k_iShopping.Controller
             }
         }
 
+        public static Orcamento GetOrcamento()
+        {
+            using (iShoppingContext db = new iShoppingContext())
+            {
+                Orcamento orcamento = db.Orcamentos.FirstOrDefault(o => o.Mes == DateTime.Now.Month);
+                return orcamento;
+            }
+        }
+
+        public decimal GetOrcamentoDisponivel()
+        {
+            Orcamento orcamento = GetOrcamento();
+            if (orcamento == null) return 0;
+
+            decimal totalGasto = this.Items.Sum(i => i.QuantidadeAdquirida * i.PrecoUnitario);
+            return orcamento.ValorInicial - totalGasto;
+        }
+
         private bool Validate(string quantidade, string precoUnitario, out int parsedQuantidade, out decimal parsedPrecoUnitario, out string message)
         {
             parsedQuantidade = 0;
@@ -69,7 +87,7 @@ namespace Temple7k_iShopping.Controller
 
         public bool AddItems(string quantidade, string precoUnitario, string observacao, int artigoId, out string message)
         {
-            int parsedQuantidade;
+            int parsedQuantidade = 0;
             decimal parsedPrecoUnitario = 0;
 
             if (!this.Validate(quantidade, precoUnitario, out parsedQuantidade, out parsedPrecoUnitario, out message)) return false;
@@ -110,7 +128,7 @@ namespace Temple7k_iShopping.Controller
 
         public bool UpdateItem(string quantidade, string precoUnitario, string observacao, int artigoId, out string message)
         {
-            int parsedQuantidade;
+            int parsedQuantidade = 0;
             decimal parsedPrecoUnitario = 0;
 
             if (!Validate(quantidade, precoUnitario, out parsedQuantidade, out parsedPrecoUnitario, out message)) return false;
@@ -140,6 +158,96 @@ namespace Temple7k_iShopping.Controller
             item.utilizadorAlterouId = Sessao.UtilizadorAtual.Id;
             item.DataAlteracao = DateTime.Now;
             message = "Item atualizado com sucesso.";
+
+            return true;
+        }
+
+        public void RemoveItem(int artigoId)
+        {
+            this.Items.RemoveAll(i => i.ArtigoId == artigoId);
+        }
+
+        public bool CloseCompra(out string message)
+        {
+            using (iShoppingContext db = new iShoppingContext())
+            {
+                Compra compra = db.Compras.Find(this.compraId);
+
+                if (compra == null)
+                {
+                    message = "Compra não encontrada.";
+                    return false;
+                }
+
+                List<ItemPrevisto> itemsPrevistos = db.ItensPrevistos
+                    .Where(i => i.CompraId == this.compraId)
+                    .ToList();
+
+                foreach (ItemPrevisto item in itemsPrevistos)
+                {
+                    ItemCompra itemExists = this.Items.FirstOrDefault(i => i.ArtigoId == item.ArtigoId);
+
+                    if (itemExists != null)
+                    {
+                        item.QuantidadeAdquirida = itemExists.QuantidadeAdquirida;
+                        item.PrecoUnitario = itemExists.PrecoUnitario;
+                        item.utilizadorAlterouId = Sessao.UtilizadorAtual.Id;
+                        item.DataAlteracao = DateTime.Now;
+                    }
+                }
+
+                List<ItemNaoPrevisto> itemsNaoPrevistos = db.ItensNaoPrevistos
+                    .Where(i => i.CompraId == this.compraId)
+                    .ToList();
+
+                foreach (ItemCompra item in this.Items)
+                {
+                    ItemNaoPrevisto itemExists = itemsNaoPrevistos.FirstOrDefault(i => i.ArtigoId == item.ArtigoId);
+
+                    if (item is ItemNaoPrevisto naoPrevisto)
+                    {
+                        if (itemExists == null)
+                        {
+                            db.ItensNaoPrevistos.Add(new ItemNaoPrevisto
+                            {
+                                ArtigoId = naoPrevisto.ArtigoId,
+                                CompraId = compra.Id,
+                                QuantidadeAdquirida = naoPrevisto.QuantidadeAdquirida,
+                                PrecoUnitario = naoPrevisto.PrecoUnitario,
+                                Observacao = naoPrevisto.Observacao,
+                                utilizadorCriouId = naoPrevisto.utilizadorCriouId,
+                                DataCriacao = naoPrevisto.DataCriacao
+                            });
+                        }
+                        else
+                        {
+                            itemExists.QuantidadeAdquirida = item.QuantidadeAdquirida;
+                            itemExists.PrecoUnitario = item.PrecoUnitario;
+                            itemExists.Observacao = naoPrevisto.Observacao;
+                            itemExists.utilizadorAlterouId = Sessao.UtilizadorAtual.Id;
+                            itemExists.DataAlteracao = DateTime.Now;
+                        }
+                    }
+                }
+
+                compra.Fechada = true;
+                compra.DataFechada = DateTime.Now;
+                compra.utilizadorFechouId = Sessao.UtilizadorAtual.Id;
+
+                Orcamento orcamento = db.Orcamentos.FirstOrDefault(o => o.Mes == DateTime.Now.Month);
+
+                if (orcamento == null) { 
+                    message = $"Falha ao finalizar a compra. Não foi possivel pegar o orçamento para o mês atual.";
+                    return false;
+                }
+
+                decimal orcamentoDisponivel = this.GetOrcamentoDisponivel();
+                orcamento.Valor = orcamentoDisponivel;
+
+                db.SaveChanges();
+            }
+
+            message = "Compra finalizada com sucesso.";
 
             return true;
         }

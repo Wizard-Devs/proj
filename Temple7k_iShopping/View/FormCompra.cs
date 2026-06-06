@@ -28,6 +28,19 @@ namespace Temple7k_iShopping
             controller = new FormCompraController(this.idCompra);
         }
 
+        private void UpdateOrcamento()
+        {
+            decimal orcamentoDisponivel = controller.GetOrcamentoDisponivel();
+
+            labelOrcamentoAtual.Text = $"{orcamentoDisponivel:f2} €";
+            labelOrcamentoAtual.ForeColor = orcamentoDisponivel < 0 ? Color.Red : Color.Black;
+
+            if (orcamentoDisponivel < 0)
+            {
+                MessageBox.Show("O orçamento para esta compra foi ultrapassado, remova itens ou adicione mais fundos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void UpdateGrid(bool onLoad = false)
         {
             dataGridViewCompra.DataSource = null;
@@ -55,7 +68,10 @@ namespace Temple7k_iShopping
             comboBoxArtigos.DisplayMember = "Nome";
             comboBoxArtigos.ValueMember = "Id";
 
+            labelNomeCompra.Text = this.nameCompra;
+
             UpdateGrid();
+            UpdateOrcamento();
         }
 
         private void dataGridViewCompra_SelectionChanged(object sender, EventArgs e)
@@ -86,6 +102,7 @@ namespace Temple7k_iShopping
             MessageBox.Show(message);
 
             UpdateGrid();
+            UpdateOrcamento();
         }
 
         private void button2Alterar_Click(object sender, EventArgs e)
@@ -102,6 +119,37 @@ namespace Temple7k_iShopping
             MessageBox.Show(message);
 
             UpdateGrid();
+            UpdateOrcamento();
+        }
+
+        private void button3Remover_Click(object sender, EventArgs e)
+        {
+            int artigoId = (int)comboBoxArtigos.SelectedValue;
+            controller.RemoveItem(artigoId);
+
+            UpdateGrid();
+            UpdateOrcamento();
+        }
+
+        private void buttonTerminarCompra_Click(object sender, EventArgs e)
+        {
+            string message;
+
+            DialogResult result = MessageBox.Show("Tens certeza que queres fechar a compra?", "Fechar Compra", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            bool success = controller.CloseCompra(out message);
+            MessageBox.Show(message);
+
+            if (success)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }

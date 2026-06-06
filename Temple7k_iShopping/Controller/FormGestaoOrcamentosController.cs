@@ -59,6 +59,8 @@ namespace Temple7k_iShopping.Controller
                 Orcamento orcamento = new Orcamento
                 {
                     Valor = parsedValue,
+                    ValorInicial = parsedValue,
+                    Mes = DateTime.Now.Month,
                     DataCriacao = DateTime.Now,
                     utilizadorCriouId = Sessao.UtilizadorAtual.Id
                 };
@@ -90,6 +92,7 @@ namespace Temple7k_iShopping.Controller
                 }
 
                 orcamento.Valor = parsedValue;
+                orcamento.ValorInicial = parsedValue;
                 orcamento.DataAlteracao = DateTime.Now;
                 orcamento.utilizadorAlterouId = Sessao.UtilizadorAtual.Id;
 
