@@ -71,9 +71,30 @@ namespace Temple7k_iShopping
 
         private void button5_Click(object sender, EventArgs e)
         {
-            FormCompra form = new FormCompra();
-            form.ShowDialog();
-            UpdateGrid();
+            int idCompra = 0;
+            string nameCompra = "";
+
+            if (dataGridViewPrincipal.SelectedRows.Count > 0)
+            {
+                idCompra = (int)dataGridViewPrincipal.SelectedRows[0].Cells["Id"]?.Value;
+                nameCompra = (string)dataGridViewPrincipal.SelectedRows[0].Cells["Nome"]?.Value;
+
+            }
+
+            if (idCompra == 0)
+            {
+                MessageBox.Show("Nenhuma compra selecionada. Por favor selecione uma compra.");
+                return;
+            }
+
+
+            FormCompra form = new FormCompra(idCompra, nameCompra);
+            var result = form.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                UpdateGrid();
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)

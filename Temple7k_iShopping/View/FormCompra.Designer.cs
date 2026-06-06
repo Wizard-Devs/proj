@@ -31,111 +31,173 @@
             this.button1Adicionar = new System.Windows.Forms.Button();
             this.button3Remover = new System.Windows.Forms.Button();
             this.button2Alterar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1Username = new System.Windows.Forms.TextBox();
+            this.dataGridViewCompra = new System.Windows.Forms.DataGridView();
+            this.textBoxQuantidade = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxPrecoUnitario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1ListaAdquiridosOuNao = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.comboBoxArtigos = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonTerminarCompra = new System.Windows.Forms.Button();
+            this.richTextBoxObservacao = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompra)).BeginInit();
             this.SuspendLayout();
             // 
             // button1Adicionar
             // 
-            this.button1Adicionar.Location = new System.Drawing.Point(44, 32);
+            this.button1Adicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
+            this.button1Adicionar.Location = new System.Drawing.Point(22, 480);
+            this.button1Adicionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1Adicionar.Name = "button1Adicionar";
-            this.button1Adicionar.Size = new System.Drawing.Size(115, 52);
+            this.button1Adicionar.Size = new System.Drawing.Size(86, 42);
             this.button1Adicionar.TabIndex = 14;
             this.button1Adicionar.Text = "Adicionar";
             this.button1Adicionar.UseVisualStyleBackColor = true;
+            this.button1Adicionar.Click += new System.EventHandler(this.button1Adicionar_Click);
             // 
             // button3Remover
             // 
-            this.button3Remover.Location = new System.Drawing.Point(343, 32);
+            this.button3Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
+            this.button3Remover.Location = new System.Drawing.Point(256, 480);
+            this.button3Remover.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3Remover.Name = "button3Remover";
-            this.button3Remover.Size = new System.Drawing.Size(115, 52);
+            this.button3Remover.Size = new System.Drawing.Size(86, 42);
             this.button3Remover.TabIndex = 13;
             this.button3Remover.Text = "Remover";
             this.button3Remover.UseVisualStyleBackColor = true;
             // 
             // button2Alterar
             // 
-            this.button2Alterar.Location = new System.Drawing.Point(187, 32);
+            this.button2Alterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
+            this.button2Alterar.Location = new System.Drawing.Point(137, 480);
+            this.button2Alterar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2Alterar.Name = "button2Alterar";
-            this.button2Alterar.Size = new System.Drawing.Size(115, 52);
+            this.button2Alterar.Size = new System.Drawing.Size(86, 42);
             this.button2Alterar.TabIndex = 12;
             this.button2Alterar.Text = "Alterar";
             this.button2Alterar.UseVisualStyleBackColor = true;
+            this.button2Alterar.Click += new System.EventHandler(this.button2Alterar_Click);
             // 
-            // dataGridView1
+            // dataGridViewCompra
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(44, 118);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(414, 208);
-            this.dataGridView1.TabIndex = 15;
+            this.dataGridViewCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCompra.Location = new System.Drawing.Point(22, 224);
+            this.dataGridViewCompra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewCompra.Name = "dataGridViewCompra";
+            this.dataGridViewCompra.RowHeadersWidth = 51;
+            this.dataGridViewCompra.RowTemplate.Height = 24;
+            this.dataGridViewCompra.Size = new System.Drawing.Size(698, 234);
+            this.dataGridViewCompra.TabIndex = 15;
+            this.dataGridViewCompra.SelectionChanged += new System.EventHandler(this.dataGridViewCompra_SelectionChanged);
             // 
-            // textBox1Username
+            // textBoxQuantidade
             // 
-            this.textBox1Username.Location = new System.Drawing.Point(594, 118);
-            this.textBox1Username.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1Username.Name = "textBox1Username";
-            this.textBox1Username.Size = new System.Drawing.Size(232, 22);
-            this.textBox1Username.TabIndex = 17;
+            this.textBoxQuantidade.Location = new System.Drawing.Point(216, 38);
+            this.textBoxQuantidade.Name = "textBoxQuantidade";
+            this.textBoxQuantidade.Size = new System.Drawing.Size(175, 20);
+            this.textBoxQuantidade.TabIndex = 17;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(487, 124);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
+            this.label1.Location = new System.Drawing.Point(213, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 16);
+            this.label1.Size = new System.Drawing.Size(86, 17);
             this.label1.TabIndex = 16;
             this.label1.Text = "Quantidade:";
             // 
-            // textBox1
+            // textBoxPrecoUnitario
             // 
-            this.textBox1.Location = new System.Drawing.Point(594, 200);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(232, 22);
-            this.textBox1.TabIndex = 19;
+            this.textBoxPrecoUnitario.Location = new System.Drawing.Point(433, 38);
+            this.textBoxPrecoUnitario.Name = "textBoxPrecoUnitario";
+            this.textBoxPrecoUnitario.Size = new System.Drawing.Size(175, 20);
+            this.textBoxPrecoUnitario.TabIndex = 19;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(487, 206);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
+            this.label2.Location = new System.Drawing.Point(430, 19);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 16);
+            this.label2.Size = new System.Drawing.Size(102, 17);
             this.label2.TabIndex = 18;
             this.label2.Text = "Preço Unitário:";
             // 
-            // comboBox1ListaAdquiridosOuNao
+            // comboBoxArtigos
             // 
-            this.comboBox1ListaAdquiridosOuNao.FormattingEnabled = true;
-            this.comboBox1ListaAdquiridosOuNao.Location = new System.Drawing.Point(541, 274);
-            this.comboBox1ListaAdquiridosOuNao.Name = "comboBox1ListaAdquiridosOuNao";
-            this.comboBox1ListaAdquiridosOuNao.Size = new System.Drawing.Size(205, 24);
-            this.comboBox1ListaAdquiridosOuNao.TabIndex = 20;
+            this.comboBoxArtigos.FormattingEnabled = true;
+            this.comboBoxArtigos.Location = new System.Drawing.Point(22, 38);
+            this.comboBoxArtigos.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxArtigos.Name = "comboBoxArtigos";
+            this.comboBoxArtigos.Size = new System.Drawing.Size(155, 21);
+            this.comboBoxArtigos.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
+            this.label3.Location = new System.Drawing.Point(19, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 17);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Artigos:";
+            // 
+            // buttonTerminarCompra
+            // 
+            this.buttonTerminarCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
+            this.buttonTerminarCompra.Location = new System.Drawing.Point(634, 480);
+            this.buttonTerminarCompra.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonTerminarCompra.Name = "buttonTerminarCompra";
+            this.buttonTerminarCompra.Size = new System.Drawing.Size(86, 42);
+            this.buttonTerminarCompra.TabIndex = 22;
+            this.buttonTerminarCompra.Text = "Terminar Compra";
+            this.buttonTerminarCompra.UseVisualStyleBackColor = true;
+            // 
+            // richTextBoxObservacao
+            // 
+            this.richTextBoxObservacao.Location = new System.Drawing.Point(22, 129);
+            this.richTextBoxObservacao.Name = "richTextBoxObservacao";
+            this.richTextBoxObservacao.Size = new System.Drawing.Size(698, 69);
+            this.richTextBoxObservacao.TabIndex = 23;
+            this.richTextBoxObservacao.Text = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
+            this.label4.Location = new System.Drawing.Point(19, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 17);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Observação:";
             // 
             // FormCompra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 382);
-            this.Controls.Add(this.comboBox1ListaAdquiridosOuNao);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(743, 545);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.richTextBoxObservacao);
+            this.Controls.Add(this.buttonTerminarCompra);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBoxArtigos);
+            this.Controls.Add(this.textBoxPrecoUnitario);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1Username);
+            this.Controls.Add(this.textBoxQuantidade);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewCompra);
             this.Controls.Add(this.button1Adicionar);
             this.Controls.Add(this.button3Remover);
             this.Controls.Add(this.button2Alterar);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormCompra";
             this.Text = "FormCompra";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FormCompra_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,11 +208,15 @@
         private System.Windows.Forms.Button button1Adicionar;
         private System.Windows.Forms.Button button3Remover;
         private System.Windows.Forms.Button button2Alterar;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1Username;
+        private System.Windows.Forms.DataGridView dataGridViewCompra;
+        private System.Windows.Forms.TextBox textBoxQuantidade;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPrecoUnitario;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1ListaAdquiridosOuNao;
+        private System.Windows.Forms.ComboBox comboBoxArtigos;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonTerminarCompra;
+        private System.Windows.Forms.RichTextBox richTextBoxObservacao;
+        private System.Windows.Forms.Label label4;
     }
 }
