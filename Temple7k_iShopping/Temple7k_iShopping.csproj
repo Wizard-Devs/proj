@@ -62,6 +62,7 @@
     <Compile Include="Controller\FormGestaoOrcamentosController.cs" />
     <Compile Include="Controller\FormGestaoArtigosController.cs" />
     <Compile Include="Controller\FormGestaoTipoArtigosController.cs" />
+    <Compile Include="Controller\FormGestaoUtilizadorController.cs" />
     <Compile Include="Controller\FormLoginController.cs" />
     <Compile Include="Controller\FormPlaneamentoComprasController.cs" />
     <Compile Include="Controller\FormPrincipalController.cs" />
@@ -94,6 +95,12 @@
     </Compile>
     <Compile Include="View\FormGestaoTiposDeArtigo.Designer.cs">
       <DependentUpon>FormGestaoTiposDeArtigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormGestaoUtilizadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormGestaoUtilizadores.Designer.cs">
+      <DependentUpon>FormGestaoUtilizadores.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormLogin.cs">
       <SubType>Form</SubType>
@@ -146,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormGestaoTiposDeArtigo.resx">
       <DependentUpon>FormGestaoTiposDeArtigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormGestaoUtilizadores.resx">
+      <DependentUpon>FormGestaoUtilizadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
