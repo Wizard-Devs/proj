@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Temple7k_iShopping.Controller;
 
 namespace Temple7k_iShopping.View
 {
@@ -15,6 +16,22 @@ namespace Temple7k_iShopping.View
         public FormEstatisticas()
         {
             InitializeComponent();
+        }
+
+        private void UpdateGrid()
+        {
+            dataGridViewOrçamentoMes.DataSource = null;
+            dataGridViewOrçamentoMes.DataSource = FormGestaoOrcamentosController.GetOrcamentos();
+        }
+
+        private void tabPageListagem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormEstatisticas_Load(object sender, EventArgs e)
+        {
+            UpdateGrid();
         }
     }
 }
