@@ -66,6 +66,13 @@ namespace Temple7k_iShopping.View
                 PercentagemPrevistos = $"{percetageItemsPrevistos:f2}%",
                 PercentagemNaoPrevistos = $"{percetageItemsNaoPrevistos:f2}%",
             }).ToList();
+
+            List<Orcamento> orcamento = FormEstatisticaController.GetOrcamentos();
+            decimal orcamentoTotalFunds = orcamento.Sum(o => o.ValorInicial);
+            int orcamentoTotalMes = orcamento.Count();
+
+            labelOrcamentoSugerido.Text = (orcamentoTotalFunds / orcamentoTotalMes).ToString("F2") + " €";
+
         }
 
         private void dataGridViewOrçamentoMes_CellContentClick(object sender, DataGridViewCellEventArgs e)
