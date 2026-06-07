@@ -50,6 +50,22 @@ namespace Temple7k_iShopping.View
                 Gasto = o.ValorInicial - o.Valor,
                 Diferenca = o.Valor
             }).ToList();
+
+            List<double> percetageItems = FormEstatisticaController.ItemsPercentage();
+            List<Compra> compras = FormEstatisticaController.PegarItemCompra();
+
+            double percetageItemsPrevistos = percetageItems[0];
+            double percetageItemsNaoPrevistos = percetageItems[1];
+
+            dataGridView1.DataSource = compras.Select(c => new
+            {
+                c.Nome,
+                DataInicio = c.DataInicio,
+                DataFechada = c.DataFechada,
+                c.Fechada,
+                PercentagemPrevistos = $"{percetageItemsPrevistos:f2}%",
+                PercentagemNaoPrevistos = $"{percetageItemsNaoPrevistos:f2}%",
+            }).ToList();
         }
 
         private void dataGridViewOrçamentoMes_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -33,7 +33,6 @@ namespace Temple7k_iShopping
             decimal orcamentoDisponivel = controller.GetOrcamentoDisponivel();
 
             labelOrcamentoAtual.Text = $"{orcamentoDisponivel:f2} €";
-            labelOrcamentoAtual.ForeColor = orcamentoDisponivel < 0 ? Color.Red : Color.Black;
 
             if (orcamentoDisponivel < 0)
             {
