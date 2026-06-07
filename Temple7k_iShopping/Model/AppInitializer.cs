@@ -31,15 +31,24 @@ namespace Temple7k_iShopping.Model
             context.Orcamentos.Add(new Orcamento { ValorInicial = 200, Valor = -20, Mes = 6, DataCriacao = DateTime.Now, utilizadorCriouId = 1 });
             context.SaveChanges();
 
-            context.Compras.Add(new Compra { Nome = "Compra Semanal", DataInicio = DateTime.Now, Fechada = false, utilizadorId = 1 });
-            context.Compras.Add(new Compra { Nome = "Compra Mensal", DataInicio = DateTime.Now, Fechada = true, DataFechada = DateTime.Now, utilizadorId = 1, utilizadorFechouId = 1 });
+            context.Compras.Add(new Compra { Nome = "Compra Atual", DataInicio = DateTime.Now, Fechada = false, utilizadorId = 1 });
+
+            context.Compras.Add(new Compra { Nome = "Compra Abril 1ª Semana", DataInicio = new DateTime(2026, 4, 3), Fechada = true, DataFechada = new DateTime(2026, 4, 3), utilizadorId = 1, utilizadorFechouId = 1 });
+            context.Compras.Add(new Compra { Nome = "Compra Março 1ª Semana", DataInicio = new DateTime(2026, 3, 5), Fechada = true, DataFechada = new DateTime(2026, 3, 5), utilizadorId = 1, utilizadorFechouId = 1 });
+            context.Compras.Add(new Compra { Nome = "Compra Maio 1ª Semana", DataInicio = new DateTime(2026, 5, 2), Fechada = true, DataFechada = new DateTime(2026, 5, 2), utilizadorId = 1, utilizadorFechouId = 1 });
             context.SaveChanges();
 
-            context.ItensPrevistos.Add(new ItemPrevisto { CompraId = 1, ArtigoId = 1, QuantidadePrevista = 3, QuantidadeAdquirida = 2, PrecoUnitario = 1.50m, DataCriacao = DateTime.Now, utilizadorCriouId = 1 });
-            context.ItensPrevistos.Add(new ItemPrevisto { CompraId = 1, ArtigoId = 2, QuantidadePrevista = 1, QuantidadeAdquirida = 1, PrecoUnitario = 4.99m, DataCriacao = DateTime.Now, utilizadorCriouId = 1 });
+            context.ItensPrevistos.Add(new ItemPrevisto { CompraId = 1, ArtigoId = 1, QuantidadePrevista = 3, QuantidadeAdquirida = 0, PrecoUnitario = 0, DataCriacao = DateTime.Now, utilizadorCriouId = 1 });
 
-            context.ItensNaoPrevistos.Add(new ItemNaoPrevisto { CompraId = 1, ArtigoId = 3, QuantidadeAdquirida = 1, PrecoUnitario = 2.30m, Observacao = "Estava em promoção", DataCriacao = DateTime.Now, utilizadorCriouId = 1 });
-            context.ItensNaoPrevistos.Add(new ItemNaoPrevisto { CompraId = 2, ArtigoId = 1, QuantidadeAdquirida = 2, PrecoUnitario = 0.99m, Observacao = "Faltava em casa", DataCriacao = DateTime.Now, utilizadorCriouId = 1 });
+            context.ItensPrevistos.Add(new ItemPrevisto { CompraId = 2, ArtigoId = 1, QuantidadePrevista = 2, QuantidadeAdquirida = 2, PrecoUnitario = 1.50m, DataCriacao = new DateTime(2026, 4, 3), utilizadorCriouId = 1 });
+            context.ItensPrevistos.Add(new ItemPrevisto { CompraId = 2, ArtigoId = 2, QuantidadePrevista = 1, QuantidadeAdquirida = 1, PrecoUnitario = 4.99m, DataCriacao = new DateTime(2026, 4, 3), utilizadorCriouId = 1 });
+
+            context.ItensPrevistos.Add(new ItemPrevisto { CompraId = 3, ArtigoId = 1, QuantidadePrevista = 3, QuantidadeAdquirida = 3, PrecoUnitario = 1.50m, DataCriacao = new DateTime(2026, 3, 5), utilizadorCriouId = 1 });
+            context.ItensPrevistos.Add(new ItemPrevisto { CompraId = 3, ArtigoId = 3, QuantidadePrevista = 2, QuantidadeAdquirida = 2, PrecoUnitario = 2.30m, DataCriacao = new DateTime(2026, 3, 5), utilizadorCriouId = 1 });
+
+            context.ItensPrevistos.Add(new ItemPrevisto { CompraId = 4, ArtigoId = 1, QuantidadePrevista = 2, QuantidadeAdquirida = 2, PrecoUnitario = 1.50m, DataCriacao = new DateTime(2026, 5, 2), utilizadorCriouId = 1 });
+            context.ItensPrevistos.Add(new ItemPrevisto { CompraId = 4, ArtigoId = 2, QuantidadePrevista = 1, QuantidadeAdquirida = 1, PrecoUnitario = 4.99m, DataCriacao = new DateTime(2026, 5, 2), utilizadorCriouId = 1 });
+
             context.SaveChanges();
 
             base.Seed(context);
