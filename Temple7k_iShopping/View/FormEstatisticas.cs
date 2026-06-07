@@ -85,7 +85,19 @@ namespace Temple7k_iShopping.View
                 return;
             }
 
-            dataGridView2.DataSource = sugestao;
+            sugestao = FormEstatisticaController.AgruparItens(sugestao);
+
+            dataGridView2.DataSource = null;
+
+            dataGridView2.Columns.Clear();
+            dataGridView2.Columns.Add("Artigo", "Artigo");
+            dataGridView2.Columns.Add("Quantidade", "Quantidade Prevista");
+            dataGridView2.Rows.Clear();
+
+            foreach (ItemPrevisto item in sugestao)
+            {
+                dataGridView2.Rows.Add(FormEstatisticaController.PegarNomeArtigo(item.ArtigoId), item.QuantidadePrevista);
+            }
         }
     }
 }
