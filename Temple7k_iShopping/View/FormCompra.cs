@@ -41,7 +41,7 @@ namespace Temple7k_iShopping
             }
         }
 
-        private void UpdateGrid(bool onLoad = false)
+        private void UpdateGrid()
         {
             dataGridViewCompra.DataSource = null;
             dataGridViewCompra.DataSource = this.controller.Items.Select(i => new
@@ -150,6 +150,11 @@ namespace Temple7k_iShopping
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void dataGridViewCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

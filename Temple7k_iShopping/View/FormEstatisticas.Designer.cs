@@ -32,7 +32,7 @@
             this.tabPageListagem = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridViewOrçamentoMes = new System.Windows.Forms.DataGridView();
+            this.dataGridViewOrcamentoMes = new System.Windows.Forms.DataGridView();
             this.tabPageApoio = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.labelOrcamentoSugerido = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPageListagem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrçamentoMes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrcamentoMes)).BeginInit();
             this.tabPageApoio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             this.tabPageListagem.Controls.Add(this.label1);
             this.tabPageListagem.Controls.Add(this.dataGridView1);
             this.tabPageListagem.Controls.Add(this.label2);
-            this.tabPageListagem.Controls.Add(this.dataGridViewOrçamentoMes);
+            this.tabPageListagem.Controls.Add(this.dataGridViewOrcamentoMes);
             this.tabPageListagem.Location = new System.Drawing.Point(4, 22);
             this.tabPageListagem.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageListagem.Name = "tabPageListagem";
@@ -84,6 +84,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(552, 122);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label2
             // 
@@ -96,17 +97,17 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Compras fechadas - artigos previstos e não previstos";
             // 
-            // dataGridViewOrçamentoMes
+            // dataGridViewOrcamentoMes
             // 
-            this.dataGridViewOrçamentoMes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewOrçamentoMes.Location = new System.Drawing.Point(20, 57);
-            this.dataGridViewOrçamentoMes.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridViewOrçamentoMes.Name = "dataGridViewOrçamentoMes";
-            this.dataGridViewOrçamentoMes.RowHeadersWidth = 51;
-            this.dataGridViewOrçamentoMes.RowTemplate.Height = 24;
-            this.dataGridViewOrçamentoMes.Size = new System.Drawing.Size(552, 122);
-            this.dataGridViewOrçamentoMes.TabIndex = 1;
-            this.dataGridViewOrçamentoMes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOrçamentoMes_CellContentClick);
+            this.dataGridViewOrcamentoMes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOrcamentoMes.Location = new System.Drawing.Point(20, 57);
+            this.dataGridViewOrcamentoMes.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewOrcamentoMes.Name = "dataGridViewOrcamentoMes";
+            this.dataGridViewOrcamentoMes.RowHeadersWidth = 51;
+            this.dataGridViewOrcamentoMes.RowTemplate.Height = 24;
+            this.dataGridViewOrcamentoMes.Size = new System.Drawing.Size(552, 122);
+            this.dataGridViewOrcamentoMes.TabIndex = 1;
+            this.dataGridViewOrcamentoMes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOrçamentoMes_CellContentClick);
             // 
             // tabPageApoio
             // 
@@ -192,7 +193,7 @@
             this.tabPageListagem.ResumeLayout(false);
             this.tabPageListagem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrçamentoMes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrcamentoMes)).EndInit();
             this.tabPageApoio.ResumeLayout(false);
             this.tabPageApoio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -207,7 +208,7 @@
         private System.Windows.Forms.TabPage tabPageApoio;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridViewOrçamentoMes;
+        private System.Windows.Forms.DataGridView dataGridViewOrcamentoMes;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label labelOrcamentoSugerido;

@@ -16,5 +16,13 @@ namespace Temple7k_iShopping.Controller
                 return db.Orcamentos.ToList();
             }
         }
+
+        public static List<Compra> PegarItemCompra()
+        {
+            using (iShoppingContext db = new iShoppingContext())
+            {
+                return db.Compras.Where(c => c.Fechada).ToList();
+            }
+        }
     }
 }

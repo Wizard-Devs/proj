@@ -50,7 +50,7 @@
             // 
             this.button1Adicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
             this.button1Adicionar.Location = new System.Drawing.Point(23, 523);
-            this.button1Adicionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1Adicionar.Margin = new System.Windows.Forms.Padding(2);
             this.button1Adicionar.Name = "button1Adicionar";
             this.button1Adicionar.Size = new System.Drawing.Size(86, 42);
             this.button1Adicionar.TabIndex = 14;
@@ -62,7 +62,7 @@
             // 
             this.button3Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
             this.button3Remover.Location = new System.Drawing.Point(257, 523);
-            this.button3Remover.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3Remover.Margin = new System.Windows.Forms.Padding(2);
             this.button3Remover.Name = "button3Remover";
             this.button3Remover.Size = new System.Drawing.Size(86, 42);
             this.button3Remover.TabIndex = 13;
@@ -74,7 +74,7 @@
             // 
             this.button2Alterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
             this.button2Alterar.Location = new System.Drawing.Point(138, 523);
-            this.button2Alterar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2Alterar.Margin = new System.Windows.Forms.Padding(2);
             this.button2Alterar.Name = "button2Alterar";
             this.button2Alterar.Size = new System.Drawing.Size(86, 42);
             this.button2Alterar.TabIndex = 12;
@@ -86,12 +86,13 @@
             // 
             this.dataGridViewCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCompra.Location = new System.Drawing.Point(23, 267);
-            this.dataGridViewCompra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewCompra.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewCompra.Name = "dataGridViewCompra";
             this.dataGridViewCompra.RowHeadersWidth = 51;
             this.dataGridViewCompra.RowTemplate.Height = 24;
             this.dataGridViewCompra.Size = new System.Drawing.Size(760, 234);
             this.dataGridViewCompra.TabIndex = 15;
+            this.dataGridViewCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCompra_CellContentClick);
             this.dataGridViewCompra.SelectionChanged += new System.EventHandler(this.dataGridViewCompra_SelectionChanged);
             // 
             // textBoxQuantidade
@@ -219,7 +220,7 @@
             this.Controls.Add(this.button1Adicionar);
             this.Controls.Add(this.button3Remover);
             this.Controls.Add(this.button2Alterar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormCompra";
             this.Text = "FormCompra";
             this.Load += new System.EventHandler(this.FormCompra_Load);
