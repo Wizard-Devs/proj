@@ -85,5 +85,20 @@ namespace Temple7k_iShopping.View
         {
 
         }
+
+        private void button1GerarSugestao_Click(object sender, EventArgs e)
+        {
+            string message;
+            List<ItemPrevisto> sugestao;
+            sugestao = FormEstatisticaController.SugerirCompras(out message);
+
+            if(message != "")
+            {
+                MessageBox.Show(message);
+                return;
+            }
+
+            dataGridView2.DataSource = sugestao;
+        }
     }
 }

@@ -25,6 +25,56 @@ namespace Temple7k_iShopping.Controller
             }
         }
 
+        public static List<ItemPrevisto> SugerirCompras(out string message)
+        {
+            int semanaAtual = PegarSemanaAtual();
+
+            using (iShoppingContext db = new iShoppingContext())
+            {
+                List<Compra> compra = db.Compras
+                    .Where(c => c.Fechada)
+                    .ToList()
+                    .Where(c => PegarSemana(c.DataInicio.Day) == semanaAtual && !(c.DataInicio.Month == DateTime.Now.Month && c.DataInicio.Year == DateTime.Now.Year))
+                    .ToList();
+
+                if(compra.Count == 0)
+                {
+                    message = "Ddos insuficientes para sugerir na lista";
+                    return new List<ItemPrevisto>();
+                }
+
+                List<int> compraIds = compra.Select(c => c.Id).ToList();
+
+                message = "";
+                return db.ItensPrevistos.Where(i => compraIds.Contains(i.CompraId)).ToList();
+            }
+        }
+
+        public static int PegarSemanaAtual()
+        {
+            return PegarSemana(DateTime.Now.Day);
+        }
+
+        public static int PegarSemana(int dia)
+        {
+            if(dia <= 7)
+            {
+                return 1;
+            }
+            else if(dia <= 14)
+            {
+                return 2;
+            }
+            else if(dia <= 21)
+            {
+                return 3;
+            }
+            else
+            {
+                return 4;
+            }
+        }
+
         public static List<double> ItemsPercentage()
         {
             int itemsPrevistos = 0;
@@ -60,5 +110,7 @@ namespace Temple7k_iShopping.Controller
 
             return new List<double> { percentageItemsPrevistos, percentageItemsNaoPrevistos };
         }
+
+
     }
 }
