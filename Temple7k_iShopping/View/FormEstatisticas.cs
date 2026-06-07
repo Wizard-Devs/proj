@@ -35,22 +35,6 @@ namespace Temple7k_iShopping.View
 
         private void FormEstatisticas_Load(object sender, EventArgs e)
         {
-            UpdateGrid();
-            CarregarOrcamentos();
-        }
-
-        private void CarregarOrcamentos()
-        {
-            List<Orcamento> orcamentos = FormEstatisticaController.GetOrcamentos();
-
-            dataGridViewOrcamentoMes.DataSource = orcamentos.Select(o => new
-            {
-                Mes = new DateTime(DateTime.Now.Year, o.Mes, 1).ToString("MMM/yyyy"),
-                Orcamento = o.ValorInicial,
-                Gasto = o.ValorInicial - o.Valor,
-                Diferenca = o.Valor
-            }).ToList();
-
             List<double> percetageItems = FormEstatisticaController.ItemsPercentage();
             List<Compra> compras = FormEstatisticaController.PegarItemCompra();
 
@@ -67,7 +51,24 @@ namespace Temple7k_iShopping.View
                 PercentagemNaoPrevistos = $"{percetageItemsNaoPrevistos:f2}%",
             }).ToList();
 
+            UpdateGrid();
+            CarregarOrcamentos();
+        }
+
+        private void CarregarOrcamentos()
+        {
+            List<Orcamento> orcamentos = FormEstatisticaController.GetOrcamentos();
+
+            dataGridViewOrcamentoMes.DataSource = orcamentos.Select(o => new
+            {
+                Mes = new DateTime(DateTime.Now.Year, o.Mes, 1).ToString("MMM/yyyy"),
+                Orcamento = o.ValorInicial,
+                Gasto = o.ValorInicial - o.Valor,
+                Diferenca = o.Valor
+            }).ToList();
+
             List<Orcamento> orcamento = FormEstatisticaController.GetOrcamentos();
+
             decimal orcamentoTotalFunds = orcamento.Sum(o => o.ValorInicial);
             int orcamentoTotalMes = orcamento.Count();
 
