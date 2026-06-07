@@ -60,8 +60,8 @@ namespace Temple7k_iShopping.Controller
             Orcamento orcamento = GetOrcamento();
             if (orcamento == null) return 0;
 
-            decimal totalGasto = this.Items.Sum(i => i.QuantidadeAdquirida * i.PrecoUnitario);
-            return orcamento.ValorInicial - totalGasto;
+            decimal gastoAtual = this.Items.Sum(i => i.QuantidadeAdquirida * i.PrecoUnitario);
+            return orcamento.Valor - gastoAtual;
         }
 
         private bool Validate(string quantidade, string precoUnitario, out int parsedQuantidade, out decimal parsedPrecoUnitario, out string message)
@@ -236,13 +236,14 @@ namespace Temple7k_iShopping.Controller
 
                 Orcamento orcamento = db.Orcamentos.FirstOrDefault(o => o.Mes == DateTime.Now.Month);
 
-                if (orcamento == null) { 
-                    message = $"Falha ao finalizar a compra. Não foi possivel pegar o orçamento para o mês atual.";
+                if (orcamento == null)
+                {
+                    message = "Falha ao finalizar a compra. Não foi possível obter o orçamento para o mês atual.";
                     return false;
                 }
 
-                decimal orcamentoDisponivel = this.GetOrcamentoDisponivel();
-                orcamento.Valor = orcamentoDisponivel;
+                decimal totalCompra = this.Items.Sum(i => i.QuantidadeAdquirida * i.PrecoUnitario);
+                orcamento.Valor -= totalCompra;
 
                 db.SaveChanges();
             }

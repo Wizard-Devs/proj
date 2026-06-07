@@ -9,6 +9,17 @@ namespace Temple7k_iShopping.Controller
 {
     internal class FormEstatisticaController
     {
+        internal class CompraWithPercentage {
+            public string Nome { get; set; }
+            public DateTime DataInicio { get; set; }
+            public DateTime? DataFechada { get; set; }
+            public bool Fechada { get; set; }
+            public int utilizadorId { get; set; }
+            public int? utilizadorFechouId { get; set; }
+            public string PercentagemPrevistos { get; set; }
+            public string PercentagemNaoPrevistos { get; set; }
+        }
+
         public static List<Orcamento> GetOrcamentos()
         {
             using (iShoppingContext db = new iShoppingContext())
@@ -75,18 +86,21 @@ namespace Temple7k_iShopping.Controller
             }
         }
 
-        public static List<double> ItemsPercentage()
+        public static List<CompraWithPercentage> ItemsPercentage()
         {
-            int itemsPrevistos = 0;
-            int itemsNaoPrevistos = 0;
-            int itemsTotal = 0;
+            var result = new List<CompraWithPercentage>();
 
+            
             using (iShoppingContext db = new iShoppingContext())
             {
                 List<Compra> compras = PegarItemCompra();
 
                 foreach (Compra compra in compras)
                 {
+                    int itemsPrevistos = 0;
+                    int itemsNaoPrevistos = 0;
+                    int itemsTotal = 0;
+
                     List<ItemCompra> items = db.ItensCompra.Where(i => i.CompraId == compra.Id).ToList();
 
                     itemsTotal = items.Count();
@@ -102,15 +116,25 @@ namespace Temple7k_iShopping.Controller
                             itemsNaoPrevistos++;
                         }
                     }
+
+                    double percentageItemsPrevistos = itemsTotal > 0 ? (double)itemsPrevistos / (double)itemsTotal * 100 : 0;
+                    double percentageItemsNaoPrevistos = itemsTotal > 0 ? (double)itemsNaoPrevistos / (double)itemsTotal * 100 : 0;
+
+                    result.Add(new CompraWithPercentage
+                    {
+                        Nome = compra.Nome,
+                        DataInicio = compra.DataInicio,
+                        DataFechada = compra.DataFechada,
+                        Fechada = compra.Fechada,
+                        PercentagemPrevistos = $"{percentageItemsPrevistos:f2}%",
+                        PercentagemNaoPrevistos = $"{percentageItemsNaoPrevistos:f2}%",
+                        utilizadorId = compra.utilizadorId,
+                        utilizadorFechouId = compra.utilizadorFechouId
+                    });
                 }
             }
 
-            double percentageItemsPrevistos = itemsTotal > 0 ? (double)itemsPrevistos / (double)itemsTotal * 100 : 0;
-            double percentageItemsNaoPrevistos = itemsTotal > 0 ? (double)itemsNaoPrevistos / (double)itemsTotal * 100 : 0;
-
-            return new List<double> { percentageItemsPrevistos, percentageItemsNaoPrevistos };
+            return result;
         }
-
-
     }
 }

@@ -35,22 +35,6 @@ namespace Temple7k_iShopping.View
 
         private void FormEstatisticas_Load(object sender, EventArgs e)
         {
-            List<double> percetageItems = FormEstatisticaController.ItemsPercentage();
-            List<Compra> compras = FormEstatisticaController.PegarItemCompra();
-
-            double percetageItemsPrevistos = percetageItems[0];
-            double percetageItemsNaoPrevistos = percetageItems[1];
-
-            dataGridView1.DataSource = compras.Select(c => new
-            {
-                c.Nome,
-                DataInicio = c.DataInicio,
-                DataFechada = c.DataFechada,
-                c.Fechada,
-                PercentagemPrevistos = $"{percetageItemsPrevistos:f2}%",
-                PercentagemNaoPrevistos = $"{percetageItemsNaoPrevistos:f2}%",
-            }).ToList();
-
             UpdateGrid();
             CarregarOrcamentos();
         }
@@ -66,6 +50,9 @@ namespace Temple7k_iShopping.View
                 Gasto = o.ValorInicial - o.Valor,
                 Diferenca = o.Valor
             }).ToList();
+
+            var compras = FormEstatisticaController.ItemsPercentage();
+            dataGridView1.DataSource = compras;
 
             List<Orcamento> orcamento = FormEstatisticaController.GetOrcamentos();
 
