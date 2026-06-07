@@ -60,7 +60,7 @@ namespace Temple7k_iShopping.Controller
                             artigoPrevisto + ";" +
                             artigoNaoPrevisto + ";" +
                             quantidadePrevista + ";" +
-                            item.QuantidadeAdquirida,
+                            item.QuantidadeAdquirida + ";" +
                             item.PrecoUnitario
                         );
                     }
