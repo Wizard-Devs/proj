@@ -40,10 +40,15 @@ namespace Temple7k_iShopping
 
         private void CarregarComboBox()
         {
-            comboBox1Filtrar.DataSource = FormGestaoTipoArtigosController.ObterTiposArtigos();
-            comboBox1Filtrar.DisplayMember = "Tipo";
-            comboBox1Filtrar.ValueMember = "Id";
+            comboBox1Filtrar.Items.Clear();
+            comboBox1Filtrar.Items.Add("Todos");
 
+            foreach (TipoArtigo tipo in FormGestaoTipoArtigosController.ObterTiposArtigos())
+            {
+                comboBox1Filtrar.Items.Add(tipo.Tipo);
+            }
+
+            comboBox1Filtrar.SelectedIndex = 0;
 
             comboBox2TipoArt.DataSource = FormGestaoTipoArtigosController.ObterTiposArtigos();
             comboBox2TipoArt.DisplayMember = "Tipo";  
@@ -112,6 +117,24 @@ namespace Temple7k_iShopping
                 CarregarDados();
             }
                 
+        }
+
+        private void button1Filtrar_Click(object sender, EventArgs e)
+        {
+            string selecionado = comboBox1Filtrar.SelectedItem.ToString();
+
+            if (selecionado == "Todos")
+            {
+                dataGridView1.DataSource = FormGestaoArtigosController.ObterArtigos();
+            }
+            else
+            {
+                var tipos = FormGestaoTipoArtigosController.ObterTiposArtigos();
+                TipoArtigo tipo = tipos.FirstOrDefault(t => t.Tipo == selecionado);
+
+                if (tipo != null)
+                    dataGridView1.DataSource = FormGestaoArtigosController.ObterArtigosPorTipo(tipo.Id);
+            }
         }
     }
 }

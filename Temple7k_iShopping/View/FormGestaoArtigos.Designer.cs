@@ -73,6 +73,7 @@
             this.button1Filtrar.TabIndex = 7;
             this.button1Filtrar.Text = "Filtrar";
             this.button1Filtrar.UseVisualStyleBackColor = false;
+            this.button1Filtrar.Click += new System.EventHandler(this.button1Filtrar_Click);
             // 
             // button3Remover
             // 

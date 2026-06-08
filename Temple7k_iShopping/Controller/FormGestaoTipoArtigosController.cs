@@ -21,6 +21,7 @@ namespace Temple7k_iShopping.Controller
             }
         }
 
+
         static public bool AdicionarTipoArtigo(string tipoArtigo, out string message)
         // Valida e adiciona um novo tipo de artigo na base de dados, garantindo que não exista tipo de artigo duplicado.
         {

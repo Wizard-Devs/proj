@@ -46,8 +46,54 @@ namespace Temple7k_iShopping.Controller
             │       │           │            │       │          │              │
             └───────┴───────────┘            └───────┴──────────┴──────────────┘
 
-            Site utilizado para fazer o diagrama (https://asciiflow.com/#/)
+            Site utilizado para fazer este diagrama (https://asciiflow.com/#/)
 
+            */
+        }
+
+        public static List<Artigo> ObterArtigosPorTipo(int tipoId)
+        // Busca os artigos do tipo selecionado e junta o nome do tipo a cada artigo através do Join
+        {
+            using (iShoppingContext db = new iShoppingContext())
+            {
+                var artigos = db.Artigos.Where(a => a.TipoArtigoId == tipoId).ToList();
+                var tiposArtigo = db.TipoArtigo.ToList();
+
+                return artigos.Join(
+                    tiposArtigo,
+                    artigo => artigo.TipoArtigoId,
+                    tipo => tipo.Id,
+                    (artigo, tipo) => new Artigo
+                    {
+                        Id = artigo.Id,
+                        Nome = artigo.Nome,
+                        TipoArtigoId = artigo.TipoArtigoId,
+                        TipoArtigo = tipo.Tipo
+                    }).ToList();
+            }
+
+            // Nesta função filtramos os artigos pelo tipo selecionado e utilizamos o Join para associar o nome do TipoArtigo a cada artigo, igual como foi feito na função ObterArtigos();
+            /*
+            ┌──────┬────────┬───────┐   ┌───────┬────────────────┐
+            │      │        │       │   │       │                │
+            │  Id  │  Nome  │ TipoID│   │  Id   │      Tipo      │
+            │      │        │       │   │       │                │
+            │      │        │       │ + │       │                │
+            │   1  │  Leite │   2   │   │   2   │     Laticinios │
+            │      │        │       │   │       │                │
+            └──────┴────────┴───────┘   └───────┴────────────────┘
+                                      │                           
+                                      │                           
+                                      │                           
+                                      v                           
+            ┌───────┬───────────┬─────────────┬──────────────────┐
+            │       │           │             │                  │
+            │   Id  │   Nome    │  TipoID     │   TipoArtigo     │
+            │       │           │             │                  │
+            │       │           │             │                  │
+            │   1   │   Leite   │     2       │     Laticinios   │
+            │       │           │             │                  │
+            └───────┴───────────┴─────────────┴──────────────────┘
             */
         }
 
