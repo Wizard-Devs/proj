@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Temple7k_iShopping.Model
 {
-    internal class AppInitializer : DropCreateDatabaseAlways<iShoppingContext>
+    internal class AppInitializer : DropCreateDatabaseIfModelChanges<iShoppingContext>
     {
         protected override void Seed(iShoppingContext context)
         {
