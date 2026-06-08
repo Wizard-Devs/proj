@@ -53,7 +53,7 @@
             // 
             // button1Adicionar
             // 
-            this.button1Adicionar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1Adicionar.BackColor = System.Drawing.SystemColors.Control;
             this.button1Adicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1Adicionar.Location = new System.Drawing.Point(12, 76);
             this.button1Adicionar.Margin = new System.Windows.Forms.Padding(2);
@@ -66,7 +66,7 @@
             // 
             // button2Alterar
             // 
-            this.button2Alterar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2Alterar.BackColor = System.Drawing.SystemColors.Control;
             this.button2Alterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.button2Alterar.Location = new System.Drawing.Point(12, 125);
             this.button2Alterar.Margin = new System.Windows.Forms.Padding(2);
@@ -79,7 +79,7 @@
             // 
             // button3Remover
             // 
-            this.button3Remover.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3Remover.BackColor = System.Drawing.SystemColors.Control;
             this.button3Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.button3Remover.Location = new System.Drawing.Point(11, 175);
             this.button3Remover.Margin = new System.Windows.Forms.Padding(2);
@@ -130,7 +130,7 @@
             // 
             // button1Sair
             // 
-            this.button1Sair.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1Sair.BackColor = System.Drawing.SystemColors.Control;
             this.button1Sair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.button1Sair.Location = new System.Drawing.Point(11, 225);
             this.button1Sair.Margin = new System.Windows.Forms.Padding(2);
