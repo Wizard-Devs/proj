@@ -22,6 +22,8 @@ namespace Temple7k_iShopping.Controller
             
             if (compraId > 0)
             {
+                // carregamos os items já guardados da compra existente para adicionar/alterar/remover
+
                 using (iShoppingContext db = new iShoppingContext())
                 {
                     Compra compra = db.Compras.Find(compraId);
@@ -103,6 +105,8 @@ namespace Temple7k_iShopping.Controller
 
             using (iShoppingContext db = new iShoppingContext())
             {
+                // procura o artigo e o seu respetivo tipo e os guardar o item na memória
+
                 Artigo artigo = db.Artigos.Find(artigoId);
                 TipoArtigo tipoArtigo = db.TipoArtigo.Find(artigo.TipoArtigoId);
 
@@ -149,6 +153,8 @@ namespace Temple7k_iShopping.Controller
                 return false;
             }
 
+            // marca quem alterou e quando
+
             message = "Item atualizado com sucesso.";
             item.QuantidadePrevista = parsedQuantidadePrevista;
             item.utilizadorAlterouId = Sessao.UtilizadorAtual.Id;
@@ -193,11 +199,11 @@ namespace Temple7k_iShopping.Controller
                     }
                 }
 
-                db.SaveChanges(); // salva para gerar o ID da compra
+                db.SaveChanges(); // guarda a compra primeiro para gerar o ID
 
                 List<ItemPrevisto> itensDB = db.ItensPrevistos.Where(i => i.CompraId == compra.Id).ToList();
 
-                // sincronizar dados locais com a DB
+                // sincronizar os dados locais com a DB: remove os itens que já não existem e adiciona/atualiza os restantes.
                 foreach (ItemPrevisto itemDB in itensDB)
                 {
                     if (!this.Items.Any(i => i.ArtigoId == itemDB.ArtigoId))
@@ -206,6 +212,7 @@ namespace Temple7k_iShopping.Controller
                     }
                 }
 
+                // adicionar ou alterar ItemsNaoPrevistos
                 foreach (ItemPrevisto item in this.Items)
                 {
                     ItemPrevisto itemExists = itensDB.FirstOrDefault(i => i.ArtigoId == item.ArtigoId);

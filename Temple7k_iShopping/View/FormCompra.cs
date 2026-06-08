@@ -28,6 +28,9 @@ namespace Temple7k_iShopping
             controller = new FormCompraController(this.idCompra);
         }
 
+        /*
+         * Atualiza o valor disponível e avisa quando o orçamento foi ultrapassado.
+         * */
         private void UpdateOrcamento()
         {
             decimal orcamentoDisponivel = controller.GetOrcamentoDisponivel();
@@ -43,6 +46,8 @@ namespace Temple7k_iShopping
         private void UpdateGrid()
         {
             dataGridViewCompra.DataSource = null;
+
+            // converte os itens para um formato simples de apresentar na DataGridView.
             dataGridViewCompra.DataSource = this.controller.Items.Select(i => new
             {
                 i.Id,
@@ -81,6 +86,7 @@ namespace Temple7k_iShopping
 
             if (row.Cells["Quantidade"].Value == null || row.Cells["PrecoUnitario"].Value == null) return;
 
+            // preenche os campos do formulário com os dados da linha selecionada.
             textBoxQuantidade.Text = row.Cells["Quantidade"].Value.ToString();
             textBoxPrecoUnitario.Text = row.Cells["PrecoUnitario"].Value.ToString();
             richTextBoxObservacao.Text = row.Cells["Observacao"].Value.ToString();

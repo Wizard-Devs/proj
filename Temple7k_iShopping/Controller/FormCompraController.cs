@@ -20,6 +20,7 @@ namespace Temple7k_iShopping.Controller
 
             using (iShoppingContext db = new iShoppingContext())
             {
+                // carrega os itens da compra e guarda em memória.
                 Items = db.ItensCompra
                     .Include("Artigo")
                     .Where(i => i.CompraId == compraId)
@@ -60,6 +61,7 @@ namespace Temple7k_iShopping.Controller
             Orcamento orcamento = GetOrcamento();
             if (orcamento == null) return 0;
 
+            // o gasto atual é calculado pelos itens já registados na compra
             decimal gastoAtual = this.Items.Sum(i => i.QuantidadeAdquirida * i.PrecoUnitario);
             return orcamento.Valor - gastoAtual;
         }
@@ -106,6 +108,7 @@ namespace Temple7k_iShopping.Controller
 
             using (iShoppingContext db = new iShoppingContext())
             {
+                // procura o artigo e o tipo para criar o item completo em memória.
                 Artigo artigo = db.Artigos.Find(artigoId);
                 TipoArtigo tipoArtigo = db.TipoArtigo.Find(artigo.TipoArtigoId);
 
@@ -142,6 +145,7 @@ namespace Temple7k_iShopping.Controller
                 return false;
             }
 
+            // verificamos se o tipo do ItemCompra é ItemNaoPrevisto se for fazemos o check para o campo observacao e atribuimos o valor.
             if (item is ItemNaoPrevisto naoPrevisto)
             {
                 if (observacao.Trim() == "")
@@ -184,6 +188,7 @@ namespace Temple7k_iShopping.Controller
                     .Where(i => i.CompraId == this.compraId)
                     .ToList();
 
+                // atualiza os itens previstos já existentes com os valores comprados.
                 foreach (ItemPrevisto item in itemsPrevistos)
                 {
                     ItemCompra itemExists = this.Items.FirstOrDefault(i => i.ArtigoId == item.ArtigoId);
@@ -201,6 +206,7 @@ namespace Temple7k_iShopping.Controller
                     .Where(i => i.CompraId == this.compraId)
                     .ToList();
 
+                // garante que os itens não previstos também ficam persistidos ao fechar a compra.
                 foreach (ItemCompra item in this.Items)
                 {
                     ItemNaoPrevisto itemExists = itemsNaoPrevistos.FirstOrDefault(i => i.ArtigoId == item.ArtigoId);
@@ -244,6 +250,7 @@ namespace Temple7k_iShopping.Controller
                     return false;
                 }
 
+                // subtrai o total desta compra ao orçamento mensal disponível.
                 decimal totalCompra = this.Items.Sum(i => i.QuantidadeAdquirida * i.PrecoUnitario);
                 orcamento.Valor -= totalCompra;
 

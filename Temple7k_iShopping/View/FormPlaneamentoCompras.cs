@@ -21,6 +21,7 @@ namespace Temple7k_iShopping
 
         private void LoadData(List<Compra> filter = null)
         {
+            // carrega a grid com todas as compras ou apenas com as que passaram no filtro.
             dataGridViewPlaneamentoCompras.DataSource = filter != null ? filter : FormPlaneamentoComprasController.GetCompras();
         }
 
@@ -30,16 +31,17 @@ namespace Temple7k_iShopping
             bool isClosed = false;
             string nomeCompra = "";
 
+            // extrai dados da linha selecionada para criar ou editar a compra.
             if (dataGridViewPlaneamentoCompras.SelectedRows.Count > 0) {
                 idCompra = (int)dataGridViewPlaneamentoCompras.SelectedRows[0].Cells["Id"]?.Value;
                 nomeCompra = (string)dataGridViewPlaneamentoCompras.SelectedRows[0].Cells["Nome"]?.Value;
                 isClosed = (bool)dataGridViewPlaneamentoCompras.SelectedRows[0].Cells["Fechada"]?.Value;
-
             }
 
             FormCriacaoAlteracao form = new FormCriacaoAlteracao(idCompra, isClosed, nomeCompra);
             var result = form.ShowDialog();
 
+            // se o utilizador finalizou o formulário, recarrega a lista de compras.
             if (result == DialogResult.OK) {
                 LoadData();
             }
@@ -53,6 +55,9 @@ namespace Temple7k_iShopping
             LoadData();
         }
 
+        /*
+         * Aplica o filtro selecionado e atualiza a grid com os resultados.
+         * */
         private void button2Filtrar_Click(object sender, EventArgs e)
         {
             string filter = (string)comboBoxFiltrosExistentes.SelectedValue;
@@ -61,6 +66,9 @@ namespace Temple7k_iShopping
             LoadData(filteredList);
         }
 
+        /*
+         * Fechar as compras selecionadas DataGridView e recarrega a lista.
+         * */
         private void buttonFecharCompras_Click(object sender, EventArgs e)
         {
             string message;

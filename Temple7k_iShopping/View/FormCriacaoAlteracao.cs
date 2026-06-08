@@ -34,6 +34,7 @@ namespace Temple7k_iShopping
 
             if (onLoad)
             {
+                // no carregamento inicial, carrega os itens diretamente da DB
                 using (iShoppingContext db = new iShoppingContext())
                 {
                     dataGridViewItens.DataSource = db.ItensPrevistos
@@ -53,6 +54,7 @@ namespace Temple7k_iShopping
                 }
             } else
             {
+                // após adicionar/alterar/remover, usa os itens já carregados em memória no controller
                 dataGridViewItens.DataSource = this.controller.Items.Select(i => new {
                     i.Id,
                     i.ArtigoId,
@@ -116,6 +118,7 @@ namespace Temple7k_iShopping
 
             textBoxNomeCompra.Text = this.nomeCompra;
 
+            // mostra aviso se a compra já está fechada
             if (this.isClosed)
             {
                 MessageBox.Show("A compra esta fechada, pode ser apenas visualizada.");
@@ -153,6 +156,7 @@ namespace Temple7k_iShopping
 
             if (row.Cells["QuantidadePrevista"].Value == null) return;
 
+            // preenche os campos com os dados da linha selecionada.
             textBoxQuantidadePrevista.Text = row.Cells["QuantidadePrevista"].Value.ToString();
             comboBoxArtigos.SelectedValue = (int)row.Cells["ArtigoId"].Value;
         }

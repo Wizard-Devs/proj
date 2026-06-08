@@ -100,11 +100,15 @@ namespace Temple7k_iShopping.Controller
             }
         }
 
+        /*
+         * Calcula as percentagens de aparição dos ItemPrevisto e ItemNãoPrevisto
+         * 
+         * return: Nova lista de compras com o valor das percentagem
+         */
         public static List<CompraWithPercentage> ItemsPercentage()
         {
             var result = new List<CompraWithPercentage>();
 
-            
             using (iShoppingContext db = new iShoppingContext())
             {
                 List<Compra> compras = PegarItemCompra();
@@ -119,6 +123,7 @@ namespace Temple7k_iShopping.Controller
 
                     itemsTotal = items.Count();
 
+                    // loop para verificar se o ItemCompra é do tipo ItemPrevisto ou ItemNãoPrevisto
                     foreach (ItemCompra item in items)
                     {
                         if (item is ItemPrevisto previsto)
