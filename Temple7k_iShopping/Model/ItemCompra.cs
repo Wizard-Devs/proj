@@ -10,6 +10,7 @@ namespace Temple7k_iShopping.Model
     {
         public int Id { get; set; }
         public int ArtigoId { get; set; }
+        public int TipoArtigoId { get; set; }
         public int CompraId { get; set; }
         public int QuantidadeAdquirida { get; set; }
         public decimal PrecoUnitario { get; set; }

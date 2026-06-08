@@ -30,6 +30,7 @@ namespace Temple7k_iShopping.Controller
                         this.isClosed = compra.Fechada;
                         this.Items = db.ItensPrevistos
                             .Include("Artigo")
+                            .Include("TipoArtigo")
                             .Where(i => i.CompraId == compraId).ToList();
                     }
                 }
@@ -108,6 +109,7 @@ namespace Temple7k_iShopping.Controller
                 this.Items.Add(new ItemPrevisto
                 {
                     ArtigoId = artigoId,
+                    TipoArtigoId = artigo.TipoArtigoId,
                     Artigo = artigo,
                     TipoArtigo = tipoArtigo,
                     QuantidadePrevista = parsedQuantidadePrevista,
@@ -215,6 +217,7 @@ namespace Temple7k_iShopping.Controller
                         {
                             CompraId = compra.Id,
                             ArtigoId = item.ArtigoId,
+                            TipoArtigoId = item.TipoArtigoId,
                             DataCriacao = item.DataCriacao,
                             utilizadorCriouId = item.utilizadorCriouId,
                             QuantidadePrevista = item.QuantidadePrevista,

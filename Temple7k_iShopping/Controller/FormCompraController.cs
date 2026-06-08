@@ -112,6 +112,7 @@ namespace Temple7k_iShopping.Controller
                 this.Items.Add(new ItemNaoPrevisto
                 {
                     ArtigoId = artigoId,
+                    TipoArtigoId = artigo.TipoArtigoId,
                     Artigo = artigo,
                     TipoArtigo = tipoArtigo,
                     QuantidadeAdquirida = parsedQuantidade,
@@ -212,6 +213,7 @@ namespace Temple7k_iShopping.Controller
                             {
                                 ArtigoId = naoPrevisto.ArtigoId,
                                 CompraId = compra.Id,
+                                TipoArtigoId = naoPrevisto.TipoArtigoId,
                                 QuantidadeAdquirida = naoPrevisto.QuantidadeAdquirida,
                                 PrecoUnitario = naoPrevisto.PrecoUnitario,
                                 Observacao = naoPrevisto.Observacao,
