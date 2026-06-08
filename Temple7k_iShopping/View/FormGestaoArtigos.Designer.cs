@@ -64,8 +64,8 @@
             // 
             // button1Filtrar
             // 
-            this.button1Filtrar.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1Filtrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.button1Filtrar.BackColor = System.Drawing.SystemColors.Control;
+            this.button1Filtrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.button1Filtrar.Location = new System.Drawing.Point(282, 7);
             this.button1Filtrar.Margin = new System.Windows.Forms.Padding(2);
             this.button1Filtrar.Name = "button1Filtrar";
@@ -77,7 +77,7 @@
             // 
             // button3Remover
             // 
-            this.button3Remover.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3Remover.BackColor = System.Drawing.SystemColors.Control;
             this.button3Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.button3Remover.Location = new System.Drawing.Point(277, 196);
             this.button3Remover.Margin = new System.Windows.Forms.Padding(2);
@@ -90,7 +90,7 @@
             // 
             // button2Alterar
             // 
-            this.button2Alterar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2Alterar.BackColor = System.Drawing.SystemColors.Control;
             this.button2Alterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.button2Alterar.Location = new System.Drawing.Point(149, 196);
             this.button2Alterar.Margin = new System.Windows.Forms.Padding(2);
@@ -103,7 +103,7 @@
             // 
             // button1Adicionar
             // 
-            this.button1Adicionar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1Adicionar.BackColor = System.Drawing.SystemColors.Control;
             this.button1Adicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.button1Adicionar.Location = new System.Drawing.Point(12, 196);
             this.button1Adicionar.Margin = new System.Windows.Forms.Padding(2);
