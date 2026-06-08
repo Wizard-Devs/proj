@@ -21,6 +21,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static List<Orcamento> GetOrcamentos()
+        //Essa função tem um papel de pegar todos os dados presentes na db Orçamento.
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -29,6 +30,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static List<Compra> PegarItemCompra()
+        //Essa função tem um papel de pegar todos os dados presentes na db Compras onde ele seleciona apenas as compras fechadas.
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -37,6 +39,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static List<ItemPrevisto> SugerirCompras(out string message)
+        // Sugere uma lista de compras com base nas compras fechadas da mesma semana de meses anteriores
         {
             int semanaAtual = PegarSemanaAtual();
 
@@ -62,13 +65,15 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static int PegarSemanaAtual()
+        // Retorna a semana atual do mês (1º, 2º, 3º ou 4º)
         {
             return PegarSemana(DateTime.Now.Day);
         }
 
         public static int PegarSemana(int dia)
+        // Converte o dia do mês para o número da semana
         {
-            if(dia <= 7)
+            if (dia <= 7)
             {
                 return 1;
             }
@@ -87,6 +92,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static string PegarNomeArtigo(int artigoID)
+        // Retorna o nome do artigo com base no seu ID
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -146,15 +152,38 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static List<ItemPrevisto> AgruparItens(List<ItemPrevisto> itens)
+        // Agrupa os itens pelo artigo e calcula a média da quantidade prevista
         {
             return itens
+                // Agrupa os itens que tem o mesmo ArtigoId
                 .GroupBy(i => i.ArtigoId)
+                // Para cada grupo cria um novo ItemPrevisto
                 .Select(g => new ItemPrevisto
                 {
+                    // Define o ArtigoId com a chave do grupo (o ArtigoId em comum)
                     ArtigoId = g.Key,
+                    // Calcula a média das quantidades e converte para inteiro
                     QuantidadePrevista = (int)g.Average(i => i.QuantidadePrevista)
                 })
                 .ToList();
         }
+
+        /*Porque o uso dessa função? 
+         No SugerirCompras ele devolve TODOS os itens de todas as compras anteriores, e o mesmo artigo pode aparecer varias vezes
+
+        Exemplo de como seria sem a função:
+            - ExemploArtigo -> 2(quantidade) (Compra de abril)
+            - ExemploArtigo -> 3(quantidade) (Compra de março)
+            - ExemploArtigo -> 2(quantidade) (Compra de maio)
+            
+            -BBB -> 1(quantidade)
+
+            -CCC -> 2(quantidade)
+         
+        Exemplo de como seria com a função:
+            - ExemploArtigo -> 2  (media de 2,3,2)
+            - BBB -> 1
+            - CCC -> 2
+         */
     }
 }

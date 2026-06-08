@@ -11,6 +11,7 @@ namespace Temple7k_iShopping.Controller
     internal class FormGestaoArtigosController
     {
         public static List<Artigo> ObterArtigos()
+        // Retorna todos os artigos com o nome do tipo de artigo correspondente
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -29,9 +30,29 @@ namespace Temple7k_iShopping.Controller
                         TipoArtigo = tipo.Tipo
                     }).ToList();
             }
+
+            //Nesta função utilizamos o join para associar o nome do TipoArtigo a cada artigo, uma vez que o modelo Artigo apenas guarda o TipoArtigoId
+            /*
+                                                        
+                                                        Com join
+                  Sem join                   ┌───────┬──────────┬──────────────┐
+            ┌───────┬───────────┐            │       │          │              │
+            │  ID   │  Nome     │            │   ID  │  Nome    │ TipoArtigo   │
+            │       │           │            │       │          │              │
+            │  1    │   Leite   │            │   1   │  Leite   │  Laticínios  │
+            │       │           │ ────────>  │       │          │              │
+            │       │           │            │       │          │              │
+            │  2    │   Shampoo │            │   2   │  Shampoo │  Higiene     │
+            │       │           │            │       │          │              │
+            └───────┴───────────┘            └───────┴──────────┴──────────────┘
+
+            Site utilizado para fazer o diagrama (https://asciiflow.com/#/)
+
+            */
         }
 
         public static bool AdicionarArtigo(string nomeArtigo, int tipoArtigoId, out string message)
+        // Adiciona um novo artigo na base de dados, validando se o nome não está vazio e se já não existe
         {
             message = "";
 
@@ -68,6 +89,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static bool AtualizarArtigo(int id, string nomeArtigo, int tipoArtigoId, out string message)
+        // Atualiza os dados de um artigo existente, validando se o nome não está vazio e se já não existe outro artigo com os mesmos dados
         {
             message = "";
 
@@ -110,6 +132,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static bool RemoverArtigo(int id, out string message)
+        // Remove um artigo da base de dados com base no seu ID
         {
             message = "";
 

@@ -10,6 +10,7 @@ namespace Temple7k_iShopping.Controller
     internal class FormLoginController
     {
         static public bool Authenticate(string username, string password, out string message)
+        // Autentica um utilizador verificando username e password na db e define a sessão atual caso seja válido.
         {
             message = "";
 

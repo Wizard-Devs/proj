@@ -13,6 +13,7 @@ namespace Temple7k_iShopping.Controller
     internal class FormGestaoTipoArtigosController
     {
         public static List<TipoArtigo> ObterTiposArtigos()
+        //Essa função tem um papel de pegar todos os dados presentes na db TipoArtigo.
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -21,6 +22,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         static public bool AdicionarTipoArtigo(string tipoArtigo, out string message)
+        // Valida e adiciona um novo tipo de artigo na base de dados, garantindo que não exista tipo de artigo duplicado.
         {
             message = "";
 
@@ -56,6 +58,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static bool RemoverTipoArtigo(int id, out string message)
+        // Remove um tipo de artigo da base de dados com base no ID, caso ele exista.
         {
             message = "";
 
@@ -78,6 +81,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static bool AtualizarTipo(int id, string tipo, out string message)
+        // Valida e atualiza o tipo de artigo, garantindo que não exista duplicação e que o ID seja válido.
         {
             message = "";
 

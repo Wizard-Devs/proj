@@ -11,6 +11,7 @@ namespace Temple7k_iShopping.Controller
     internal class FormGestaoUtilizadorController
     {
         public static List<Utilizador> ObterUtilizadores()
+        //Essa função tem um papel de pegar todos os dados presentes na db Utilizador.
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -19,6 +20,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         static public bool AdicionarUtilizador(string userName, string password, string confirmPassword, out string message)
+        // Valida os dados e adiciona um novo utilizador na db, garantindo que o username não seja duplicado e que as passwords sejam semelhantes.
         {
             message = "";
 
@@ -62,6 +64,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         static public bool AlterarUtilizador(int id, string userName, string password, string confirmPassword, out string message)
+        // Valida e atualiza os dados de um utilizador, garantindo que o username não é duplicado e que as passwords sejam semelhantes.
         {
             message = "";
 
@@ -109,6 +112,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static bool RemoverUtilizador(int id, out string message)
+        // Remove um utilizador da base de dados pelo ID, impedindo que o utilizador atual se elimine.
         {
             message = "";
 

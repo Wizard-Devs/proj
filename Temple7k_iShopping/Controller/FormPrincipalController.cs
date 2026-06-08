@@ -12,6 +12,7 @@ namespace Temple7k_iShopping.Controller
     internal class FormPrincipalController
     {
         public static List<Compra> GetOpenCompras()
+        // Retorna todas as compras abertas (não fechadas) da db.
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -20,6 +21,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static void ExportarCsv(string caminho)
+        // Exporta para CSV todas as compras fechadas e os seus itens, formatando e limpando os dados para ficarem corretos no ficheiro.
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -69,6 +71,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         private static string EscaparCsv(string valor)
+        // Escapa valores para exportação CSV, tratando caracteres especiais como ponto e vírgula e aspas.
         {
             if (valor == null)
             {

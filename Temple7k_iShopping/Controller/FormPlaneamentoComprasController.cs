@@ -11,6 +11,7 @@ namespace Temple7k_iShopping.Controller
     internal class FormPlaneamentoComprasController
     {
         public static List<Compra> Filter(string filter)
+        // Filtra compras com base no estado (abertas, fechadas ou todas) e retorna a lista.
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -28,6 +29,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static List<Compra> GetCompras()
+        //Essa função tem um papel de pegar todos os dados presentes na db Compra.
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -36,6 +38,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static List<Artigo> GetArtigosByTipo(string tipo)
+        // Pega todos os artigos associados a um tipo específico, retornando lista vazia se o tipo não existir ou for inválido.
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -51,6 +54,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static void CloseCompra(out string message, DataGridView grid)
+        // Fecha compras selecionadas na DataGridView, atualizando o estado e registando data e utilizador responsável.
         {
             using (iShoppingContext db = new iShoppingContext())
             {

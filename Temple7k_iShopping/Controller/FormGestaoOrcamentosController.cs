@@ -12,6 +12,7 @@ namespace Temple7k_iShopping.Controller
     internal class FormGestaoOrcamentosController
     {
         public static List<Orcamento> GetOrcamentos()
+        //Essa função tem um papel de pegar todos os dados presentes na db Orçamento.
         {
             using (iShoppingContext db = new iShoppingContext())
             {
@@ -20,6 +21,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         private static bool Validate(string value, out string message, out decimal parsedValue)
+        // Valida se o valor informado não está vazio e pode ser convertido para decimal, retornando uma mensagem de erro.
         {
             if (value.Trim() == "")
             {
@@ -39,6 +41,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static bool Add(string value, out string message)
+        // Valida e adiciona um novo orçamento ao mes atual, impedindo a criação de mais de um orçamento por mes.
         {
             decimal parsedValue;
 
@@ -74,6 +77,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static bool Edit(string value, int id, out string message)
+        // Valida e atualiza os dados de um orçamento existente, registando a data e o utilizador que realizou a alteração.
         {
             decimal parsedValue;
 
@@ -104,6 +108,7 @@ namespace Temple7k_iShopping.Controller
         }
 
         public static bool Remove(int id, out string message)
+        // Remove um orçamento existente da base de dados com base no ID fornecido.
         {
 
             using (iShoppingContext db = new iShoppingContext())
