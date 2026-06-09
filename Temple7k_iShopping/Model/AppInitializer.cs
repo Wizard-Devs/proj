@@ -15,14 +15,14 @@ namespace Temple7k_iShopping.Model
             context.Utilizadores.Add(new Utilizador { Username = "user1", Password = "123" });
             context.SaveChanges();
 
-            context.TipoArtigo.Add(new TipoArtigo { Tipo = "Exemplo" });
-            context.TipoArtigo.Add(new TipoArtigo { Tipo = "BCB" });
-            context.TipoArtigo.Add(new TipoArtigo { Tipo = "CCC" });
+            context.TipoArtigo.Add(new TipoArtigo { Tipo = "Laticínios" });
+            context.TipoArtigo.Add(new TipoArtigo { Tipo = "Higiene" });
+            context.TipoArtigo.Add(new TipoArtigo { Tipo = "Limpeza" });
             context.SaveChanges();
 
-            context.Artigos.Add(new Artigo { Nome = "ExemploArtigo", TipoArtigoId = 1 });
-            context.Artigos.Add(new Artigo { Nome = "BBB", TipoArtigoId = 2 });
-            context.Artigos.Add(new Artigo { Nome = "CCC", TipoArtigoId = 3 });
+            context.Artigos.Add(new Artigo { Nome = "Leite", TipoArtigoId = 1 });
+            context.Artigos.Add(new Artigo { Nome = "Shampoo", TipoArtigoId = 2 });
+            context.Artigos.Add(new Artigo { Nome = "Detergente", TipoArtigoId = 3 });
             context.SaveChanges();
 
             context.Orcamentos.Add(new Orcamento { ValorInicial = 500, Valor = 500, Mes = 1, DataCriacao = DateTime.Now, utilizadorCriouId = 1 });
