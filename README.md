@@ -12,5 +12,5 @@ A arquitetura do projeto segue o padrão MVC e inclui funcionalidades como gest�
 Ao abrir o projeto o utilizador deverá executar o projeto, **em caso de erro** o utilizador deverá clicar com o botão direito na solução do projeto e **Restaurar Pacotes Nuget** -> **CTRL+SHIFT+B** -> **Executar o programa novamente**
 
 Para o login do projeto, o utilizador terá múltiplas formas de logar:
-admin:admin
+admin:admin //
 user1:123
