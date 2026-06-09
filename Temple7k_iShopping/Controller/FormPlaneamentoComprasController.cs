@@ -53,6 +53,25 @@ namespace Temple7k_iShopping.Controller
             }
         }
 
+        public static bool RemoveCompra(int id)
+        {
+            using (iShoppingContext db = new iShoppingContext())
+            {
+                Compra compra = db.Compras.FirstOrDefault(c => c.Id == id);
+
+                if (compra == null) return false;
+
+                List<ItemCompra> items = db.ItensCompra.Where(i => i.CompraId == id).ToList();
+
+                db.ItensCompra.RemoveRange(items);
+                db.Compras.Remove(compra);
+
+                db.SaveChanges();
+            }
+
+            return true;
+        }
+
         public static void CloseCompra(out string message, DataGridView grid)
         // Fecha compras selecionadas na DataGridView, atualizando o estado e registando data e utilizador responsável.
         {

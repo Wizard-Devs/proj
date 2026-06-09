@@ -78,5 +78,24 @@ namespace Temple7k_iShopping
 
             LoadData();
         }
+
+        private void buttonRemover_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+
+            if (dataGridViewPlaneamentoCompras.SelectedRows.Count > 0)
+            {
+                id = (int)dataGridViewPlaneamentoCompras.SelectedRows[0].Cells["Id"]?.Value;
+            }
+
+            bool success = FormPlaneamentoComprasController.RemoveCompra(id);
+
+            if (!success)
+            {
+                MessageBox.Show("Não foi possível remover esta compra.");
+            }
+
+            LoadData();
+        }
     }
 }
